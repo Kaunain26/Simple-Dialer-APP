@@ -4,11 +4,26 @@ kotlin = "1.9.0"
 kotlinxSerializationJson = "1.5.1"
 #Simple tools
 simple-commons = "5.34.27"
+#AndroidX
+androidx-constraintlayout = "2.1.4"
+androidx-swiperefreshlayout = "1.1.0"
+androidx-lifecycle-process = "2.6.1"
+#Eventbus
+eventbus = "3.3.1"
+#Room
+room = "2.6.0-alpha03"
+#Helpers
+ez-vcard = "0.11.3"
+shortcut-badger = "1.1.22"
+#Messaging
+android-smsmms = "c3e678befd"
 #Gradle
 gradlePlugins-agp = "8.1.1"
 #Other
 indicatorFastScroll = "4524cd0b61"
 autofitTextView = "0.2.1"
+#KSP
+ksp = "1.9.0-1.0.12"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"
@@ -27,7 +42,28 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 #Other
 indicator-fast-scroll = { module = "com.github.tibbi:IndicatorFastScroll", version.ref = "indicatorFastScroll" }
 autofit-text-view = { module = "me.grantland:autofittextview", version.ref = "autofitTextView" }
+#AndroidX
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout" }
+androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidx-lifecycle-process" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+#Eventbus
+eventbus = { module = "org.greenrobot:eventbus", version.ref = "eventbus" }
+#Messaging
+android-smsmms = { module = "com.github.tibbi:android-smsmms", version.ref = "android-smsmms" }
+#Helpers
+ez-vcard = { module = "com.googlecode.ez-vcard:ez-vcard", version.ref = "ez-vcard" }
+shortcut-badger = { module = "me.leolin:ShortcutBadger", version.ref = "shortcut-badger" }
+[bundles]
+room = [
+    "androidx-room-ktx",
+    "androidx-room-runtime"
+]
 [plugins]
 android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
+androidLibrary = { id = "com.android.library", version.ref = "gradlePlugins-agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

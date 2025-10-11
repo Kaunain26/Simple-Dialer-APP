@@ -4,16 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MyTextView
-        android:id="@+id/messages_placeholder"
+    <LinearLayout
+        android:id="@+id/messages_placeholder_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:padding="@dimen/activity_margin"
-        android:text="@string/no_messages_found"
-        android:textSize="@dimen/bigger_text_size"
-        android:textStyle="italic" />
+        android:orientation="vertical"
+        android:padding="@dimen/activity_margin">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/messages_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/messaging_placeholder"
+            android:textSize="@dimen/bigger_text_size"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/open_messages_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:minWidth="200dp"
+            android:text="@string/open_messages"
+            android:textAllCaps="false" />
+    </LinearLayout>
 
 </com.simplemobiletools.dialer.fragments.MessagesFragment>

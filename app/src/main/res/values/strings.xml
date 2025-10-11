@@ -21,6 +21,8 @@
     <string name="call_history_tab">Calls</string>
     <string name="messages_tab">Messages</string>
     <string name="no_messages_found">No messages yet</string>
+    <string name="messaging_placeholder">Access your text messages with Simple SMS Messenger.</string>
+    <string name="open_messages">Open messages</string>
     <string name="filter_all">All</string>
     <string name="filter_missed">Missed</string>
     <string name="filter_incoming">Incoming</string>
