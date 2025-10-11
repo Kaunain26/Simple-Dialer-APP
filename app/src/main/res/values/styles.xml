@@ -1,0 +1,59 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="android:colorBackground">@color/static_background_color</item>
+        <item name="android:textColorPrimary">@color/static_text_color</item>
+        <item name="android:textColorSecondary">@color/static_text_color</item>
+        <item name="android:statusBarColor">@color/color_primary_dark</item>
+        <item name="android:navigationBarColor">@color/static_background_color</item>
+    </style>
+
+    <style name="DialpadButtonStyle">
+        <item name="android:background">@drawable/pill_background</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:paddingTop">@dimen/one_dp</item>
+    </style>
+
+    <style name="DialpadNumberStyle">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/dialpad_text_size</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="DialpadLetterStyle">
+        <item name="android:textSize">@dimen/dialpad_letters_text_size</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="AppTheme.Button.Outlined" parent="@style/Widget.Material3.Button.OutlinedButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/filter_toggle_text</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="strokeColor">@color/filter_toggle_stroke</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:backgroundTint">@color/filter_toggle_background</item>
+        <item name="backgroundTint">@color/filter_toggle_background</item>
+        <item name="rippleColor">@color/filter_toggle_stroke</item>
+        <item name="useMaterialThemeColors">false</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="checkedIcon">@null</item>
+    </style>
+
+</resources>

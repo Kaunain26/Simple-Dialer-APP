@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/settings_manage_speed_dial_holder"
+        style="@style/SettingsHolderTextViewOneLinerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/settings_manage_speed_dial_label"
+            style="@style/SettingsTextLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_speed_dial" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_open_dialpad_at_launch_holder"
+        style="@style/SettingsHolderCheckboxStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/settings_open_dialpad_at_launch"
+            style="@style/SettingsCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_dialpad_by_default" />
+
+    </LinearLayout>
+
+</LinearLayout>

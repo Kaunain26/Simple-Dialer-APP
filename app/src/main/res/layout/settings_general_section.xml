@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/settings_manage_tabs_holder"
+        style="@style/SettingsHolderTextViewOneLinerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/settings_manage_tabs_label"
+            style="@style/SettingsTextLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_shown_tabs" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_default_tab_holder"
+        style="@style/SettingsHolderTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/settings_default_tab_label"
+            style="@style/SettingsTextLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_tab_to_open" />
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/settings_default_tab"
+            style="@style/SettingsTextValueStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:text="@string/call_history_tab"
+            tools:text="@string/call_history_tab" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ripple_foreground">#331472FF</color>
+
+    <color name="color_primary">#1472FF</color>
+    <color name="color_primary_dark">#0F5CD6</color>
+    <color name="color_primary_variant">#0F5CD6</color>
+    <color name="color_secondary">#1472FF</color>
+    <color name="color_secondary_variant">#0F5CD6</color>
+    <color name="color_surface">#FFFFFFFF</color>
+    <color name="color_on_surface">#1B1D21</color>
+    <color name="color_on_primary">#FFFFFFFF</color>
+    <color name="color_background_light">#FFFFFFFF</color>
+    <color name="color_on_background_light">#1B1D21</color>
+
+    <color name="static_background_color">@color/color_background_light</color>
+    <color name="static_text_color">@color/color_on_background_light</color>
+    <color name="static_accent_color">@color/color_primary</color>
+
+    <color name="default_primary_color">@color/color_primary</color>
+    <color name="default_accent_color">@color/color_primary</color>
+    <color name="default_background_color">@color/static_background_color</color>
+    <color name="default_text_color">@color/static_text_color</color>
+    <color name="default_app_icon_color">@color/color_primary</color>
+    <color name="default_widget_bg_color">#11FFFFFF</color>
+    <color name="default_widget_text_color">@color/color_primary</color>
+</resources>

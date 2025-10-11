@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/static_background_color">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+        app:title="@string/settings"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/settings_nested_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/settings_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/static_background_color"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="32dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp">
+
+                    <com.simplemobiletools.commons.views.MyTextView
+                        android:id="@+id/settings_general_settings_label"
+                        style="@style/SettingsSectionLabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/general_settings"
+                        android:textColor="@color/static_text_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_language_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_language_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/language" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_language"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            tools:text="English" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_manage_blocked_numbers_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_manage_blocked_numbers_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manage_blocked_numbers" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_change_date_time_format_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_change_date_time_format_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/change_date_and_time_format" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_manage_speed_dial_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_manage_speed_dial_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manage_speed_dial" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_font_size_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_font_size_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/font_size" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_font_size"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            tools:text="@string/medium" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="18dp"
+
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp">
+
+                    <com.simplemobiletools.commons.views.MyTextView
+                        android:id="@+id/settings_startup_label"
+                        style="@style/SettingsSectionLabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/startup"
+                        android:textColor="@color/static_text_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_manage_tabs_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_manage_tabs_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manage_shown_tabs" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_default_tab_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_default_tab_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_tab_to_open" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_default_tab"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            tools:text="@string/contacts_tab" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_open_dialpad_at_launch_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_open_dialpad_at_launch"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/open_dialpad_by_default" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="18dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp">
+
+                    <com.simplemobiletools.commons.views.MyTextView
+                        android:id="@+id/settings_calls_label"
+                        style="@style/SettingsSectionLabelStyle"
+                        android:text="@string/calls"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/static_text_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_group_subsequent_calls_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_group_subsequent_calls"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/group_subsequent_calls" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_start_name_with_surname_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_start_name_with_surname"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/start_name_with_surname" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_hide_dialpad_numbers_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_hide_dialpad_numbers"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hide_dialpad_numbers" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_dialpad_vibration_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_dialpad_vibration"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dialpad_vibrations" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_dialpad_beeps_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_dialpad_beeps"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dialpad_beeps" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_show_call_confirmation_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_show_call_confirmation"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/show_call_confirmation_dialog" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_disable_proximity_sensor_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_disable_proximity_sensor"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/disable_proximity_sensor" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_disable_swipe_to_answer_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_disable_swipe_to_answer"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/disable_swipe_to_answer" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_always_show_fullscreen_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_always_show_fullscreen"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/show_incoming_calls_full_screen" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="18dp"
+
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp">
+
+                    <com.simplemobiletools.commons.views.MyTextView
+                        android:id="@+id/settings_migration_section_label"
+                        style="@style/SettingsSectionLabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/migrating"
+                        android:textColor="@color/static_text_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_export_calls_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_export_calls_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/export_call_history" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="#1F000000" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_import_calls_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="12dp">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_import_calls_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/import_call_history" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
