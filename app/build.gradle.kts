@@ -97,4 +97,5 @@ dependencies {
     implementation(libs.indicator.fast.scroll)
     implementation(libs.autofit.text.view)
     implementation(libs.kotlinx.serialization.json)
+    implementation(project(":smsmessenger"))
 }

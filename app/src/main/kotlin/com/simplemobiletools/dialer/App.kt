@@ -1,16 +1,18 @@
 package com.simplemobiletools.dialer
 
 import android.app.Application
+import com.simplemobiletools.commons.extensions.checkAppIconColor
 import com.simplemobiletools.commons.extensions.checkUseEnglish
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.simplemobiletools.dialer.helpers.Config
+import com.simplemobiletools.smsmessenger.helpers.Config as MessengerConfig
 
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
         checkUseEnglish()
         enforceLightTheme()
+        enforceMessengerTheme()
     }
 
     private fun enforceLightTheme() {
@@ -74,5 +76,34 @@ class App : Application() {
         if (config.customAppIconColor != accentColor) {
             config.customAppIconColor = accentColor
         }
+    }
+
+    private fun enforceMessengerTheme() {
+        val messengerConfig = MessengerConfig.newInstance(this)
+        messengerConfig.apply {
+            isUsingSystemTheme = false
+            isUsingAutoTheme = false
+            isUsingSharedTheme = false
+            shouldUseSharedTheme = false
+            wasSharedThemeEverActivated = false
+            wasSharedThemeForced = false
+
+            val brandPrimary = ContextCompat.getColor(this@App, com.simplemobiletools.smsmessenger.R.color.color_primary)
+            val brandBackground = ContextCompat.getColor(this@App, com.simplemobiletools.smsmessenger.R.color.color_background)
+            val brandText = ContextCompat.getColor(this@App, com.simplemobiletools.commons.R.color.theme_light_text_color)
+
+            primaryColor = brandPrimary
+            customPrimaryColor = brandPrimary
+            accentColor = brandPrimary
+            customAccentColor = brandPrimary
+
+            backgroundColor = brandBackground
+            customBackgroundColor = brandBackground
+
+            textColor = brandText
+            customTextColor = brandText
+        }
+
+        applicationContext.checkAppIconColor()
     }
 }

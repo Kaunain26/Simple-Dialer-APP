@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorSecondaryVariant">@color/color_primary_dark</item>
+        <item name="colorPrimaryContainer">@color/color_primary</item>
+        <item name="colorSecondaryContainer">@color/color_primary</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="android:colorBackground">@color/color_background</item>
+        <!--        <item name="android:colorBackground">@color/color_background</item>-->
+        <item name="android:windowBackground">@color/color_background</item>
+        <!--        <item name="materialToolbarStyle">@style/AppTheme.Toolbar</item>-->
+        <item name="materialCardViewStyle">@style/AppTheme.Card</item>
+        <item name="materialButtonStyle">@style/AppTheme.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/AppTheme.Button.Outlined</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:statusBarColor">@color/color_primary_dark</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+        <item name="android:navigationBarDividerColor">@color/color_background</item>
+        <item name="android:colorAccent">@color/color_accent</item>
+    </style>
+</resources>

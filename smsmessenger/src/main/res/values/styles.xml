@@ -1,0 +1,66 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorSecondaryVariant">@color/color_primary_dark</item>
+        <item name="colorPrimaryContainer">@color/color_primary</item>
+        <item name="colorSecondaryContainer">@color/color_primary</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="android:colorBackground">@color/color_background</item>
+<!--        <item name="android:colorBackground">@color/color_background</item>-->
+        <item name="android:windowBackground">@color/color_background</item>
+<!--        <item name="materialToolbarStyle">@style/AppTheme.Toolbar</item>-->
+        <item name="materialCardViewStyle">@style/AppTheme.Card</item>
+        <item name="materialButtonStyle">@style/AppTheme.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/AppTheme.Button.Outlined</item>
+        <item name="android:statusBarColor">@color/color_primary_dark</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+        <item name="android:navigationBarDividerColor">@color/color_background</item>
+        <item name="android:colorAccent">@color/color_accent</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="@style/Widget.Material3.Toolbar">
+        <item name="android:background">@color/color_primary</item>
+        <item name="titleTextAppearance">@style/AppTheme.Toolbar.Title</item>
+        <item name="android:titleTextColor">@color/color_on_primary</item>
+        <item name="android:subtitleTextColor">@color/color_on_primary</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Title" parent="@style/TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/color_on_primary</item>
+    </style>
+
+    <style name="AppTheme.Card" parent="@style/Widget.Material3.CardView.Elevated">
+        <item name="android:backgroundTint">@color/color_surface</item>
+        <item name="cardBackgroundColor">@color/color_surface</item>
+        <item name="strokeColor">@android:color/transparent</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="@style/Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/color_primary</item>
+        <item name="backgroundTint">@color/color_primary</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+    </style>
+
+    <style name="AppTheme.Button.Outlined" parent="@style/Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/toggle_button_text_color</item>
+        <item name="strokeColor">@color/toggle_button_stroke</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="rippleColor">@color/toggle_button_ripple_color</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="useMaterialThemeColors">false</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/normal_margin</item>
+    </style>
+</resources>
