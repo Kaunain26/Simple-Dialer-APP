@@ -113,7 +113,7 @@ class SmsReceiver : BroadcastReceiver() {
                             subscriptionId
                         )
                     context.messagesDB.insertOrUpdate(message)
-                    if (context.config.isArchiveAvailable) {
+                    if (context.config_sms.isArchiveAvailable) {
                         context.updateConversationArchivedStatus(threadId, false)
                     }
                     refreshMessages()
@@ -124,7 +124,7 @@ class SmsReceiver : BroadcastReceiver() {
     }
 
     private fun isMessageFilteredOut(context: Context, body: String): Boolean {
-        for (blockedKeyword in context.config.blockedKeywords) {
+        for (blockedKeyword in context.config_sms.blockedKeywords) {
             if (body.contains(blockedKeyword, ignoreCase = true)) {
                 return true
             }

@@ -39,7 +39,7 @@ import com.simplemobiletools.smsmessenger.models.*
 import me.leolin.shortcutbadger.ShortcutBadger
 import java.io.FileNotFoundException
 
-val Context.config: Config get() = Config.newInstance(applicationContext)
+val Context.config_sms: Config get() = Config.newInstance(applicationContext)
 
 fun Context.getMessagesDB() = MessagesDatabase.getInstance(this)
 
@@ -263,7 +263,7 @@ fun Context.getMMSSender(msgId: Long): String {
 }
 
 fun Context.getConversations(threadId: Long? = null, privateContacts: ArrayList<SimpleContact> = ArrayList()): ArrayList<Conversation> {
-    val archiveAvailable = config.isArchiveAvailable
+    val archiveAvailable = config_sms.isArchiveAvailable
 
     val uri = Uri.parse("${Threads.CONTENT_URI}?simple=true")
     val projection = mutableListOf(
@@ -321,7 +321,7 @@ fun Context.getConversations(threadId: Long? = null, privateContacts: ArrayList<
         }
     } catch (sqliteException: SQLiteException) {
         if (sqliteException.message?.contains("no such column: archived") == true && archiveAvailable) {
-            config.isArchiveAvailable = false
+            config_sms.isArchiveAvailable = false
             return getConversations(threadId, privateContacts)
         } else {
             showErrorToast(sqliteException)
@@ -693,8 +693,8 @@ fun Context.deleteConversation(threadId: Long) {
 }
 
 fun Context.checkAndDeleteOldRecycleBinMessages(callback: (() -> Unit)? = null) {
-    if (config.useRecycleBin && config.lastRecycleBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
-        config.lastRecycleBinCheck = System.currentTimeMillis()
+    if (config_sms.useRecycleBin && config_sms.lastRecycleBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
+        config_sms.lastRecycleBinCheck = System.currentTimeMillis()
         ensureBackgroundThread {
             try {
                 for (message in messagesDB.getOldRecycleBinMessages(System.currentTimeMillis() - MONTH_SECONDS * 1000L)) {
@@ -751,8 +751,8 @@ fun Context.updateConversationArchivedStatus(threadId: Long, archived: Boolean) 
     try {
         contentResolver.update(uri, values, selection, selectionArgs)
     } catch (sqliteException: SQLiteException) {
-        if (sqliteException.message?.contains("no such column: archived") == true && config.isArchiveAvailable) {
-            config.isArchiveAvailable = false
+        if (sqliteException.message?.contains("no such column: archived") == true && config_sms.isArchiveAvailable) {
+            config_sms.isArchiveAvailable = false
             return
         } else {
             throw sqliteException
@@ -907,7 +907,7 @@ fun Context.getNotificationBitmap(photoUri: String): Bitmap? {
 }
 
 fun Context.removeDiacriticsIfNeeded(text: String): String {
-    return if (config.useSimpleCharacters) text.normalizeString() else text
+    return if (config_sms.useSimpleCharacters) text.normalizeString() else text
 }
 
 fun Context.getSmsDraft(threadId: Long): String? {
@@ -1034,10 +1034,10 @@ fun Context.getFileSizeFromUri(uri: Uri): Long {
 // reset messages in 5.14.3 again, as PhoneNumber is no longer minified
 // reset messages in 5.19.1 again, as SimpleContact is no longer minified
 fun Context.clearAllMessagesIfNeeded(callback: () -> Unit) {
-    if (!config.wasDbCleared) {
+    if (!config_sms.wasDbCleared) {
         ensureBackgroundThread {
             messagesDB.deleteAll()
-            config.wasDbCleared = true
+            config_sms.wasDbCleared = true
             Handler(Looper.getMainLooper()).post(callback)
         }
     } else {

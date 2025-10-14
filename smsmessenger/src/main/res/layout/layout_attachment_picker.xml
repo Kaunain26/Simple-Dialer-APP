@@ -41,9 +41,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/choose_photo"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -73,9 +74,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/choose_video"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -105,9 +107,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/take_photo"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -137,9 +140,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/record_video"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -169,9 +173,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/record_audio"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -202,9 +207,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/choose_file"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -235,9 +241,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/choose_contact"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 
@@ -267,9 +274,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_margin"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
             android:text="@string/schedule_message"
             android:textAlignment="center"
-            android:textColor="@color/default_text_color"
             android:textSize="@dimen/normal_text_size" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

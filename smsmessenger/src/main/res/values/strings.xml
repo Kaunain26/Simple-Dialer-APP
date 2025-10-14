@@ -22,7 +22,9 @@
     <string name="compress_error">Unable to compress image to selected size</string>
     <string name="filter_all">All</string>
     <string name="filter_inbox">Inbox</string>
+    <string name="filter_otp">OTP</string>
     <string name="filter_spam">Spam</string>
+    <string name="filter_promotional">Promotional</string>
     <string name="filter_blocked">Blocked</string>
     <!-- Attachments -->
     <string name="duplicate_item_warning">Duplicate item was not included</string>

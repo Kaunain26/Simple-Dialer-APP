@@ -202,18 +202,18 @@ class ThreadAdapter(
             return
         }
 
-        val baseString = if (activity.config.useRecycleBin && !isRecycleBin) {
+        val baseString = if (activity.config_sms.useRecycleBin && !isRecycleBin) {
             com.simplemobiletools.commons.R.string.move_to_recycle_bin_confirmation
         } else {
             com.simplemobiletools.commons.R.string.deletion_confirmation
         }
         val question = String.format(resources.getString(baseString), items)
 
-        DeleteConfirmationDialog(activity, question, activity.config.useRecycleBin && !isRecycleBin) { skipRecycleBin ->
+        DeleteConfirmationDialog(activity, question, activity.config_sms.useRecycleBin && !isRecycleBin) { skipRecycleBin ->
             ensureBackgroundThread {
                 val messagesToRemove = getSelectedItems()
                 if (messagesToRemove.isNotEmpty()) {
-                    val toRecycleBin = !skipRecycleBin && activity.config.useRecycleBin && !isRecycleBin
+                    val toRecycleBin = !skipRecycleBin && activity.config_sms.useRecycleBin && !isRecycleBin
                     deleteMessages(messagesToRemove.filterIsInstance<Message>(), toRecycleBin, false)
                 }
             }
@@ -277,7 +277,7 @@ class ThreadAdapter(
             threadMessageHolder.isSelected = selectedKeys.contains(message.hashCode())
             threadMessageBody.apply {
                 text = message.body
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+               // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
                 beVisibleIf(message.body.isNotEmpty())
                 setOnLongClickListener {
                     holder.viewLongClicked()
@@ -507,7 +507,7 @@ class ThreadAdapter(
         ItemThreadDateTimeBinding.bind(view).apply {
             threadDateTime.apply {
                 text = dateTime.date.formatDateOrTime(context, hideTimeAtOtherDays = false, showYearEvenIfCurrent = false)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+               // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
             }
             threadDateTime.setTextColor(textColor)
 
@@ -535,7 +535,7 @@ class ThreadAdapter(
 
     private fun setupThreadSending(view: View) {
         ItemThreadSendingBinding.bind(view).threadSending.apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+           // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
             setTextColor(textColor)
         }
     }

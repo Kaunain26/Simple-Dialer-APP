@@ -15,19 +15,23 @@ import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
+import com.simplemobiletools.dialer.databinding.FragmentBlockedTabBinding
 import com.simplemobiletools.dialer.databinding.FragmentMessagesBinding
 import com.simplemobiletools.dialer.databinding.FragmentRecentsBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(context: Context, attributeSet: AttributeSet) :
     RelativeLayout(context, attributeSet) {
     protected var activity: SimpleActivity? = null
     protected lateinit var innerBinding: BINDING
-    private lateinit var config: Config
+    lateinit var config: Config
+    lateinit var config_sms: com.simplemobiletools.smsmessenger.helpers.Config
 
     fun setupFragment(activity: SimpleActivity) {
         config = activity.config
+        config_sms = activity.config_sms
         if (this.activity == null) {
             this.activity = activity
 
@@ -89,6 +93,11 @@ abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(c
 
     class MessagesInnerBinding(val binding: FragmentMessagesBinding) : InnerBinding {
         override val fragmentList: MyRecyclerView? = null
+        override val recentsList: MyRecyclerView? = null
+    }
+
+    class BlockedInnerBinding(val binding: FragmentBlockedTabBinding) : InnerBinding {
+        override val fragmentList: MyRecyclerView? = binding.blockedNumbersList
         override val recentsList: MyRecyclerView? = null
     }
 }

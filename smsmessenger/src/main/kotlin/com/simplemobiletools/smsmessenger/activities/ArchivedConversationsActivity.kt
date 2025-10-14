@@ -128,7 +128,7 @@ class ArchivedConversationsActivity : SimpleActivity() {
 
     private fun setupConversations(conversations: ArrayList<Conversation>) {
         val sortedConversations = conversations.sortedWith(
-            compareByDescending<Conversation> { config.pinnedConversations.contains(it.threadId.toString()) }
+            compareByDescending<Conversation> { config_sms.pinnedConversations.contains(it.threadId.toString()) }
                 .thenByDescending { it.date }
         ).toMutableList() as ArrayList<Conversation>
 

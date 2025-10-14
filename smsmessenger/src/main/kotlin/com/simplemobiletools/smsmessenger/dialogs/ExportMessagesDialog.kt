@@ -5,13 +5,13 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.activities.SimpleActivity
 import com.simplemobiletools.smsmessenger.databinding.DialogExportMessagesBinding
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 class ExportMessagesDialog(
     private val activity: SimpleActivity,
     private val callback: (fileName: String) -> Unit,
 ) {
-    private val config = activity.config
+    private val config = activity.config_sms
 
     init {
         val binding = DialogExportMessagesBinding.inflate(activity.layoutInflater).apply {

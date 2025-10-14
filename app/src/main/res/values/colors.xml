@@ -24,4 +24,32 @@
     <color name="default_app_icon_color">@color/color_primary</color>
     <color name="default_widget_bg_color">#11FFFFFF</color>
     <color name="default_widget_text_color">@color/color_primary</color>
+    <color name="blocked_tab_red">#E53935</color>
+    <color name="bottom_nav_unselected">#8A8FA8</color>
+    <color name="bottom_nav_selected_bg">#E4ECFF</color>
+
+    <color name="permission_icon_tint">#1C4BD8</color>
+    <color name="permission_text_primary">#0F1E4D</color>
+    <color name="permission_text_secondary">#6B7898</color>
+    <color name="permission_card_stroke">#DDE6FF</color>
+    <color name="permission_card_background">#FFFFFFFF</color>
+    <color name="permission_button_disabled">#BFD1FF</color>
+    <color name="permission_button_enabled">@color/color_primary</color>
+    <color name="permission_switch_track_disabled">#99BFD1FF</color>
+    <color name="permission_switch_thumb_unchecked">#FFFFFFFF</color>
+
+    <color name="call_overlay_card_background">#FFFFFFFF</color>
+    <color name="call_overlay_card_stroke">#1F000000</color>
+    <color name="call_overlay_header_background">@color/color_primary</color>
+    <color name="call_overlay_header_text">@color/color_on_primary</color>
+    <color name="call_overlay_header_subtitle">#E6FFFFFF</color>
+    <color name="call_overlay_status_text">#1B1D21</color>
+    <color name="call_overlay_number_text">#1B1D21</color>
+    <color name="call_overlay_profile_background">#E6F0FF</color>
+    <color name="call_overlay_profile_text">@color/color_primary</color>
+    <color name="call_overlay_profile_icon">@color/color_primary</color>
+    <color name="call_overlay_action_icon">@color/color_primary</color>
+    <color name="call_overlay_action_text">#1B1D21</color>
+    <color name="call_overlay_close_background">#FFFFFFFF</color>
+    <color name="call_overlay_close_icon">@color/color_primary</color>
 </resources>

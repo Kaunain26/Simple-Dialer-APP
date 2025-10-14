@@ -13,13 +13,14 @@
     <string name="could_not_access_the_call_history">Could not access the call history</string>
     <string name="request_access">Request access</string>
     <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
+    <string name="unblock_number">Are you sure you want to UNBLOCK the selected number?</string>
     <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
     <string name="show_call_details">Show call details</string>
     <string name="favorites_tab">Favorites tab</string>
     <string name="call_history_tab">Calls</string>
-    <string name="messages_tab">Messages</string>
+    <string name="messages_tab">Message</string>
     <string name="no_messages_found">No messages yet</string>
     <string name="messaging_placeholder">Access your text messages with Simple SMS Messenger.</string>
     <string name="open_messages">Open messages</string>
@@ -29,6 +30,13 @@
     <string name="filter_outgoing">Outgoing</string>
     <string name="filter_spam">Spam</string>
     <string name="filter_favourite">Favourite</string>
+    <string name="blocked_calls">Blocked Calls</string>
+    <string name="blocked_numbers_tab">Block</string>
+    <string name="block_settings_tab">Block Settings</string>
+    <string name="no_blocked_numbers_found">No blocked numbers found</string>
+    <string name="manage_blocked_numbers">Manage blocked numbers</string>
+    <string name="search_hint">Search here…</string>
+    <string name="unblock">Unblock</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Dialpad</string>
@@ -96,6 +104,25 @@
     <!-- FAQ -->
     <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
     <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="removed">Removed</string>
+    <string name="outgoing">Outgoing</string>
+    <string name="missed_call">Missed call</string>
+    <string name="incoming">Incoming</string>
+
+    <!-- Permission onboarding -->
+    <string name="permission_lock_icon">Permissions</string>
+    <string name="permission_onboarding_title">Set Simple Dialer as Caller ID</string>
+    <string name="permission_onboarding_subtitle">To block spam and display caller details, Simple Dialer must be your default Phone &amp; SMS app and have the related permissions. Complete the steps below—the Continue button unlocks once everything is enabled.</string>
+    <string name="permission_default_phone_title">Default Phone App</string>
+    <string name="permission_default_phone_desc">Set Simple Dialer as the default phone app and grant call permissions so we can manage and block calls.</string>
+    <string name="permission_default_sms_title">Default SMS App</string>
+    <string name="permission_default_sms_desc">Make Simple Dialer your default SMS app and allow SMS permissions to secure conversations.</string>
+    <string name="permission_caller_id_title">Caller ID Access</string>
+    <string name="permission_caller_id_desc">Allow caller ID permission so we can read call info and detect spam numbers.</string>
+    <string name="permission_onboarding_privacy">Your privacy is our priority — we never sell, share, or misuse your data.</string>
+    <string name="permission_onboarding_privacy_policy">Read our Privacy Policy</string>
+    <string name="permission_onboarding_continue">Continue</string>
+    <string name="permission_onboarding_privacy_url">https://simplemobiletools.com/privacy</string>
 
     <!--
         Haven't found some strings? There's more at

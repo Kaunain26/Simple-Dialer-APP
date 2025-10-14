@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingEnd="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/continue_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/content_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="@drawable/bg_permission_lock_holder"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/lock_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/permission_lock_icon"
+                    android:src="@drawable/ic_permission_lock" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/permission_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:fontFamily="@font/gilroy_bold"
+                android:gravity="center"
+                android:text="@string/permission_onboarding_title"
+                android:textColor="@color/permission_text_primary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/permission_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:text="@string/permission_onboarding_subtitle"
+                android:textColor="@color/permission_text_secondary"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/permission_card_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/big_margin"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/default_phone_card"
+                    style="@style/PermissionCardStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp">
+
+                    <include
+                        android:id="@+id/default_phone"
+                        layout="@layout/item_permission_toggle" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/default_sms_card"
+                    style="@style/PermissionCardStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/default_sms"
+                        layout="@layout/item_permission_toggle" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/caller_id_card"
+                    style="@style/PermissionCardStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/caller_id"
+                        layout="@layout/item_permission_toggle" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/privacy_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/big_margin"
+                android:fontFamily="@font/gilroy_regular"
+                android:gravity="center"
+                android:text="@string/permission_onboarding_privacy"
+                android:textColor="@color/permission_text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/privacy_policy_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/gilroy_bold"
+                android:text="@string/permission_onboarding_privacy_policy"
+                android:textColor="@color/color_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continue_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_55ssp"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:enabled="false"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="@string/permission_onboarding_continue"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_16ssp"
+        app:backgroundTint="@color/permission_button_disabled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

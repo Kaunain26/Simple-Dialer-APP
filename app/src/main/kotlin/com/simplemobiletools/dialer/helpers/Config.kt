@@ -51,7 +51,16 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var showTabs: Int
-        get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
+        get() {
+            val stored = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
+            return if (stored and TAB_BLOCKED == 0) {
+                val updated = stored or TAB_BLOCKED
+                prefs.edit().putInt(SHOW_TABS, updated).apply()
+                updated
+            } else {
+                stored
+            }
+        }
         set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
 
     var groupSubsequentCalls: Boolean

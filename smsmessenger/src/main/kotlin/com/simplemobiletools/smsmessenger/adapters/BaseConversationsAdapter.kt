@@ -1,14 +1,15 @@
 package com.simplemobiletools.smsmessenger.adapters
 
+import android.content.Context
 import android.graphics.Typeface
 import android.os.Parcelable
-import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewListAdapter
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -21,8 +22,8 @@ import com.simplemobiletools.smsmessenger.models.Conversation
 
 @Suppress("LeakingThis")
 abstract class BaseConversationsAdapter(
-    activity: SimpleActivity, recyclerView: MyRecyclerView, onRefresh: () -> Unit, itemClick: (Any) -> Unit
-) : MyRecyclerViewListAdapter<Conversation>(activity, recyclerView, ConversationDiffCallback(), itemClick, onRefresh),
+    activity: Context, recyclerView: MyRecyclerView, onRefresh: () -> Unit, itemClick: (Any) -> Unit
+) : MyRecyclerViewListAdapter<Conversation>(activity as BaseSimpleActivity, recyclerView, ConversationDiffCallback(), itemClick, onRefresh),
     RecyclerViewFastScroller.OnPopupTextUpdate {
     private var fontSize = activity.getTextSize()
     private var drafts = HashMap<Long, String?>()
@@ -117,24 +118,24 @@ abstract class BaseConversationsAdapter(
             draftIndicator.beVisibleIf(smsDraft != null)
             draftIndicator.setTextColor(properPrimaryColor)
 
-            pinIndicator.beVisibleIf(activity.config.pinnedConversations.contains(conversation.threadId.toString()))
+            pinIndicator.beVisibleIf(activity.config_sms.pinnedConversations.contains(conversation.threadId.toString()))
             pinIndicator.applyColorFilter(textColor)
 
             conversationFrame.isSelected = selectedKeys.contains(conversation.hashCode())
 
             conversationAddress.apply {
                 text = conversation.title
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
             }
 
             conversationBodyShort.apply {
                 text = smsDraft ?: conversation.snippet
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.9f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.9f)
             }
 
             conversationDate.apply {
                 text = conversation.date.formatDateOrTime(context, true, false)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
             }
 
             val style = if (conversation.read) {

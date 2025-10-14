@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.activities.SimpleActivity
 import com.simplemobiletools.smsmessenger.databinding.DialogImportMessagesBinding
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.helpers.MessagesImporter
 import com.simplemobiletools.smsmessenger.models.ImportResult
 import com.simplemobiletools.smsmessenger.models.MessagesBackup
@@ -18,7 +18,7 @@ class ImportMessagesDialog(
     private val messages: List<MessagesBackup>,
 ) {
 
-    private val config = activity.config
+    private val config = activity.config_sms
 
     init {
         var ignoreClicks = false

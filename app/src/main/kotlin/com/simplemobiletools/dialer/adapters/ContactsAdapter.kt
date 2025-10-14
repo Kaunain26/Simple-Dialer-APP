@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.databinding.ItemContactWithNumberBinding
+import com.simplemobiletools.commons.databinding.ItemContactWithNumberGridBinding
 import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberBinding
 import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberGridBinding
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -346,13 +348,27 @@ class ContactsAdapter(
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupView(binding: ItemViewBinding, contact: Contact, holder: ViewHolder) {
         binding.apply {
             root.setupViewBackground(activity)
+            itemContactNumber.apply {
+                setTextColor(textColor)
+
+                val name = contact.getPrimaryNumber()
+                text = if (textToHighlight.isEmpty()) name else {
+                    if (name?.contains(textToHighlight, true) == true) {
+                        name.highlightTextPart(textToHighlight, properPrimaryColor)
+                    } else {
+                        name?.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
+                    }
+                }
+            }
+
             itemContactFrame.isSelected = selectedKeys.contains(contact.rawId)
             itemContactName.apply {
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
 
                 val name = contact.getNameToDisplay()
                 text = if (textToHighlight.isEmpty()) name else {
@@ -448,21 +464,21 @@ class ContactsAdapter(
 
         data object ItemContactGrid : Binding {
             override fun inflate(layoutInflater: LayoutInflater, viewGroup: ViewGroup, attachToRoot: Boolean): ItemViewBinding {
-                return ItemContactGridBindingAdapter(ItemContactWithoutNumberGridBinding.inflate(layoutInflater, viewGroup, attachToRoot))
+                return ItemContactGridBindingAdapter(ItemContactWithNumberGridBinding.inflate(layoutInflater, viewGroup, attachToRoot))
             }
 
             override fun bind(view: View): ItemViewBinding {
-                return ItemContactGridBindingAdapter(ItemContactWithoutNumberGridBinding.bind(view))
+                return ItemContactGridBindingAdapter(ItemContactWithNumberGridBinding.bind(view))
             }
         }
 
         data object ItemContact : Binding {
             override fun inflate(layoutInflater: LayoutInflater, viewGroup: ViewGroup, attachToRoot: Boolean): ItemViewBinding {
-                return ItemContactBindingAdapter(ItemContactWithoutNumberBinding.inflate(layoutInflater, viewGroup, attachToRoot))
+                return ItemContactBindingAdapter(ItemContactWithNumberBinding.inflate(layoutInflater, viewGroup, attachToRoot))
             }
 
             override fun bind(view: View): ItemViewBinding {
-                return ItemContactBindingAdapter(ItemContactWithoutNumberBinding.bind(view))
+                return ItemContactBindingAdapter(ItemContactWithNumberBinding.bind(view))
             }
         }
     }
@@ -472,19 +488,22 @@ class ContactsAdapter(
         val itemContactImage: ImageView
         val itemContactFrame: ConstraintLayout
         val dragHandleIcon: ImageView
+        val itemContactNumber: TextView
     }
 
-    private class ItemContactGridBindingAdapter(val binding: ItemContactWithoutNumberGridBinding) : ItemViewBinding {
+    private class ItemContactGridBindingAdapter(val binding: ItemContactWithNumberGridBinding) : ItemViewBinding {
         override val itemContactName = binding.itemContactName
         override val itemContactImage = binding.itemContactImage
         override val itemContactFrame = binding.itemContactFrame
         override val dragHandleIcon = binding.dragHandleIcon
+        override val itemContactNumber = binding.itemContactNumber
 
         override fun getRoot(): View = binding.root
     }
 
-    private class ItemContactBindingAdapter(val binding: ItemContactWithoutNumberBinding) : ItemViewBinding {
+    private class ItemContactBindingAdapter(val binding: ItemContactWithNumberBinding) : ItemViewBinding {
         override val itemContactName = binding.itemContactName
+        override val itemContactNumber = binding.itemContactNumber
         override val itemContactImage = binding.itemContactImage
         override val itemContactFrame = binding.itemContactFrame
         override val dragHandleIcon = binding.dragHandleIcon

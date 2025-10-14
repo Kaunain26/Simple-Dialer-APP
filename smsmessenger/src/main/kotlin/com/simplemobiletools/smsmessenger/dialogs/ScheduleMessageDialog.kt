@@ -12,7 +12,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.databinding.ScheduleMessageDialogBinding
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.extensions.roundToClosestMultipleOf
 import org.joda.time.DateTime
 import java.util.Calendar
@@ -54,7 +54,7 @@ class ScheduleMessageDialog(
     }
 
     private fun updateTexts(dateTime: DateTime) {
-        val dateFormat = activity.config.dateFormat
+        val dateFormat = activity.config_sms.dateFormat
         val timeFormat = activity.getTimeFormat()
         binding.editDate.text = dateTime.toString(dateFormat)
         binding.editTime.text = dateTime.toString(timeFormat)
@@ -111,7 +111,7 @@ class ScheduleMessageDialog(
         val hourOfDay = dateTime?.hourOfDay ?: getNextHour()
         val minute = dateTime?.minuteOfHour ?: getNextMinute()
 
-        if (activity.config.isUsingSystemTheme) {
+        if (activity.config_sms.isUsingSystemTheme) {
             val timeFormat = if (DateFormat.is24HourFormat(activity)) {
                 TimeFormat.CLOCK_24H
             } else {

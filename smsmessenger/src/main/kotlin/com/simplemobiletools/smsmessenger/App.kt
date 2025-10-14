@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.core.content.ContextCompat
 import com.simplemobiletools.commons.extensions.checkAppIconColor
 import com.simplemobiletools.commons.extensions.checkUseEnglish
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 class App : Application() {
     override fun onCreate() {
@@ -14,7 +14,7 @@ class App : Application() {
     }
 
     private fun enforceBrandTheme() {
-        config.apply {
+        config_sms.apply {
             isUsingSystemTheme = false
             isUsingAutoTheme = false
             isUsingSharedTheme = false

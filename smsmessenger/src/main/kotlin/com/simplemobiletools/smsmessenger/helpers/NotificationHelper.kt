@@ -21,7 +21,7 @@ import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.activities.ThreadActivity
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.messaging.isShortCodeWithLetters
 import com.simplemobiletools.smsmessenger.receivers.DeleteSmsReceiver
 import com.simplemobiletools.smsmessenger.receivers.DirectReplyReceiver
@@ -99,7 +99,7 @@ class NotificationHelper(private val context: Context) {
             null
         }
         val builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL).apply {
-            when (context.config.lockScreenVisibilitySetting) {
+            when (context.config_sms.lockScreenVisibilitySetting) {
                 LOCK_SCREEN_SENDER_MESSAGE -> {
                     setLargeIcon(largeIcon)
                     setStyle(getMessagesStyle(address, body, notificationId, sender))
@@ -124,7 +124,7 @@ class NotificationHelper(private val context: Context) {
             setSound(soundUri, AudioManager.STREAM_NOTIFICATION)
         }
 
-        if (replyAction != null && context.config.lockScreenVisibilitySetting == LOCK_SCREEN_SENDER_MESSAGE) {
+        if (replyAction != null && context.config_sms.lockScreenVisibilitySetting == LOCK_SCREEN_SENDER_MESSAGE) {
             builder.addAction(replyAction)
         }
 

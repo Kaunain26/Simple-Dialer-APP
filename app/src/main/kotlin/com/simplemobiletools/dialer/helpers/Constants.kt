@@ -20,9 +20,10 @@ const val DIALPAD_BEEPS = "dialpad_beeps"
 const val HIDE_DIALPAD_NUMBERS = "hide_dialpad_numbers"
 const val ALWAYS_SHOW_FULLSCREEN = "always_show_fullscreen"
 
-const val ALL_TABS_MASK = TAB_CALL_HISTORY or TAB_CONTACTS or TAB_MESSAGES
+const val TAB_BLOCKED = 1 shl 3
 
-val tabsList = arrayListOf(TAB_CALL_HISTORY, TAB_CONTACTS, TAB_MESSAGES)
+const val ALL_TABS_MASK = TAB_CALL_HISTORY or TAB_CONTACTS or TAB_MESSAGES or TAB_BLOCKED
+val tabsList = arrayListOf(TAB_CALL_HISTORY, TAB_CONTACTS, TAB_MESSAGES, TAB_BLOCKED)
 
 private const val PATH = "com.simplemobiletools.dialer.action."
 const val ACCEPT_CALL = PATH + "accept_call"

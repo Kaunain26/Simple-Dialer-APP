@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        android:elevation="0dp"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title="@string/settings"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/settings_nested_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/color_background"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/bigger_margin"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/settings_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/activity_margin"
+            android:paddingTop="@dimen/bigger_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:paddingBottom="@dimen/bigger_margin">
+
+            <TextView
+                android:id="@+id/settings_general_settings_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/general_settings" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_use_english_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_use_english"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/use_english_language" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/settings_general_settings_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_language_holder"
+                        style="@style/SettingsHolderTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_language_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/language" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_language"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/settings_language_label"
+                            tools:text="English" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_change_date_time_format_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_change_date_time_format"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/change_date_and_time_format" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_manage_blocked_numbers_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_manage_blocked_numbers"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manage_blocked_numbers" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_manage_blocked_keywords_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_manage_blocked_keywords"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manage_blocked_keywords" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_font_size_holder"
+                        style="@style/SettingsHolderTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_font_size_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/font_size" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_font_size"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/settings_font_size_label"
+                            tools:text="@string/medium" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/settings_notifications_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/notifications" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_customize_notifications_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_customize_notifications_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/customize_notifications" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/settings_notifications_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_lock_screen_visibility_holder"
+                        style="@style/SettingsHolderTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_lock_screen_visibility_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lock_screen_visibility" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_lock_screen_visibility"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/settings_lock_screen_visibility_label"
+                            tools:text="@string/sender_and_message" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/settings_outgoing_messages_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/outgoing_messages" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_show_character_counter_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_show_character_counter"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/show_character_counter" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_use_simple_characters_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_use_simple_characters"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/use_simple_characters" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_send_on_enter_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_send_on_enter"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/send_on_enter" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/settings_outgoing_messages_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_enable_delivery_reports_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_enable_delivery_reports"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enable_delivery_reports" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_send_long_message_mms_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_send_long_message_mms"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/send_long_message_mms" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_send_group_message_mms_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_send_group_message_mms"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/group_message_mms" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_mms_file_size_limit_holder"
+                        style="@style/SettingsHolderTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_mms_file_size_limit_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mms_file_size_limit" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_mms_file_size_limit"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/settings_mms_file_size_limit_label"
+                            tools:text="@string/mms_file_size_limit_none" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/settings_recycle_bin_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/recycle_bin" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_use_recycle_bin_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_use_recycle_bin"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/move_items_into_recycle_bin" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/settings_recycle_bin_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_empty_recycle_bin_holder"
+                        style="@style/SettingsHolderTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_empty_recycle_bin_label"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_recycle_bin" />
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_empty_recycle_bin_size"
+                            style="@style/SettingsTextValueStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/settings_empty_recycle_bin_label"
+                            tools:text="0 B" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/settings_security_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/security" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bigger_margin"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_app_password_protection_holder"
+                        style="@style/SettingsHolderCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                            android:id="@+id/settings_app_password_protection"
+                            style="@style/SettingsCheckboxStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/password_protect_whole_app" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/settings_migrating_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/small_margin" />
+
+            <TextView
+                android:id="@+id/settings_migrating_label"
+                style="@style/SettingsSectionLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:text="@string/migrating" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bottom_tabs_light_background"
+                app:cardCornerRadius="@dimen/medium_margin"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:paddingEnd="@dimen/activity_margin"
+                    android:paddingBottom="@dimen/small_margin">
+
+                    <RelativeLayout
+                        android:id="@+id/settings_export_messages_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_export_messages"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/export_messages" />
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/small_margin" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_import_messages_holder"
+                        style="@style/SettingsHolderTextViewOneLinerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/settings_import_messages"
+                            style="@style/SettingsTextLabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/import_messages" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

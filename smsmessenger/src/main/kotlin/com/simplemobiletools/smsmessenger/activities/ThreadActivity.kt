@@ -44,7 +44,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.dialogs.PermissionRequiredDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
@@ -249,7 +248,7 @@ class ThreadActivity : SimpleActivity() {
 
     private fun refreshMenuItems() {
         val firstPhoneNumber = participants.firstOrNull()?.phoneNumbers?.firstOrNull()?.value
-        val archiveAvailable = config.isArchiveAvailable
+        val archiveAvailable = config_sms.isArchiveAvailable
         binding.threadToolbar.menu.apply {
             findItem(R.id.delete).isVisible = threadItems.isNotEmpty()
             findItem(R.id.restore).isVisible = threadItems.isNotEmpty() && isRecycleBin
@@ -317,7 +316,7 @@ class ThreadActivity : SimpleActivity() {
                 if (isRecycleBin) {
                     messagesDB.getThreadMessagesFromRecycleBin(threadId)
                 } else {
-                    if (config.useRecycleBin) {
+                    if (config_sms.useRecycleBin) {
                         messagesDB.getNonRecycledThreadMessages(threadId)
                     } else {
                         messagesDB.getThreadMessages(threadId)
@@ -359,7 +358,7 @@ class ThreadActivity : SimpleActivity() {
             val cachedMessagesCode = messages.clone().hashCode()
             if (!isRecycleBin) {
                 messages = getMessages(threadId, true)
-                if (config.useRecycleBin) {
+                if (config_sms.useRecycleBin) {
                     val recycledMessages = messagesDB.getThreadMessagesFromRecycleBin(threadId).map { it.id }
                     messages = messages.filter { !recycledMessages.contains(it.id) }.toMutableList() as ArrayList<Message>
                 }
@@ -652,7 +651,7 @@ class ThreadActivity : SimpleActivity() {
             val properPrimaryColor = getProperPrimaryColor()
             threadMessagesFastscroller.updateColors(properPrimaryColor)
 
-            threadCharacterCounter.beVisibleIf(config.showCharacterCounter)
+            threadCharacterCounter.beVisibleIf(config_sms.showCharacterCounter)
             threadCharacterCounter.setTextSize(TypedValue.COMPLEX_UNIT_PX, getTextSize())
 
             threadTypeMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getTextSize())
@@ -671,7 +670,7 @@ class ThreadActivity : SimpleActivity() {
             threadTypeMessage.onTextChangeListener {
                 messageToResend = null
                 checkSendMessageAvailability()
-                val messageString = if (config.useSimpleCharacters) {
+                val messageString = if (config_sms.useSimpleCharacters) {
                     it.normalizeString()
                 } else {
                     it
@@ -680,7 +679,7 @@ class ThreadActivity : SimpleActivity() {
                 threadCharacterCounter.text = "${messageLength[2]}/${messageLength[0]}"
             }
 
-            if (config.sendOnEnter) {
+            if (config_sms.sendOnEnter) {
                 threadTypeMessage.inputType = EditorInfo.TYPE_TEXT_FLAG_CAP_SENTENCES
                 threadTypeMessage.imeOptions = EditorInfo.IME_ACTION_SEND
                 threadTypeMessage.setOnEditorActionListener { _, action, _ ->
@@ -888,7 +887,7 @@ class ThreadActivity : SimpleActivity() {
                     binding.messageHolder.threadSelectSimNumber.text = currentSIMCard.id.toString()
                     val currentSubscriptionId = currentSIMCard.subscriptionId
                     numbers.forEach {
-                        config.saveUseSIMIdAtNumber(it, currentSubscriptionId)
+                        config_sms.saveUseSIMIdAtNumber(it, currentSubscriptionId)
                     }
                     toast(currentSIMCard.label)
                 }
@@ -905,7 +904,7 @@ class ThreadActivity : SimpleActivity() {
 
     @SuppressLint("MissingPermission")
     private fun getProperSimIndex(availableSIMs: MutableList<SubscriptionInfo>, numbers: List<String>): Int {
-        val userPreferredSimId = config.getUseSIMIdAtNumber(numbers.first())
+        val userPreferredSimId = config_sms.getUseSIMIdAtNumber(numbers.first())
         val userPreferredSimIdx = availableSIMs.indexOfFirstOrNull { it.subscriptionId == userPreferredSimId }
 
         val lastMessage = messages.lastOrNull()
@@ -1255,7 +1254,7 @@ class ThreadActivity : SimpleActivity() {
         if (isGif || !isImage) {
             // is it assumed that images will always be compressed below the max MMS size limit
             val fileSize = getFileSizeFromUri(uri)
-            val mmsFileSizeLimit = config.mmsFileSizeLimit
+            val mmsFileSizeLimit = config_sms.mmsFileSizeLimit
             if (mmsFileSizeLimit != FILE_SIZE_NONE && fileSize > mmsFileSizeLimit) {
                 toast(R.string.attachment_sized_exceeds_max_limit, length = Toast.LENGTH_LONG)
                 return
@@ -1557,7 +1556,7 @@ class ThreadActivity : SimpleActivity() {
             val scheduledMessages = messagesDB.getScheduledThreadMessages(threadId)
                 .filterNot { it.isScheduled && it.millis() < System.currentTimeMillis() }
             addAll(scheduledMessages)
-            if (config.useRecycleBin) {
+            if (config_sms.useRecycleBin) {
                 val recycledMessages = messagesDB.getThreadMessagesFromRecycleBin(threadId).toSet()
                 removeAll(recycledMessages)
             }
@@ -1574,7 +1573,7 @@ class ThreadActivity : SimpleActivity() {
     }
 
     private fun isMmsMessage(text: String): Boolean {
-        val isGroupMms = participants.size > 1 && config.sendGroupMessageMMS
+        val isGroupMms = participants.size > 1 && config_sms.sendGroupMessageMMS
         val isLongMmsMessage = isLongMmsMessage(text)
         return getAttachmentSelections().isNotEmpty() || isGroupMms || isLongMmsMessage
     }
@@ -1812,7 +1811,7 @@ class ThreadActivity : SimpleActivity() {
         binding.messageHolder.attachmentPickerHolder.apply {
             beGone()
             updateLayoutParams<ConstraintLayout.LayoutParams> {
-                height = config.keyboardHeight
+                height = config_sms.keyboardHeight
             }
         }
         animateAttachmentButton(rotation = 0f)
@@ -1853,7 +1852,7 @@ class ThreadActivity : SimpleActivity() {
             val bottomBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
 
             // check keyboard height just to be sure, 150 seems like a good middle ground between ime and navigation bar
-            config.keyboardHeight = if (keyboardHeight > 150) {
+            config_sms.keyboardHeight = if (keyboardHeight > 150) {
                 keyboardHeight - bottomBarHeight
             } else {
                 getDefaultKeyboardHeight()

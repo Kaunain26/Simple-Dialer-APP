@@ -36,7 +36,7 @@ class AttachmentsAdapter(
     val onReady: (() -> Unit)
 ) : ListAdapter<AttachmentSelection, AttachmentsAdapter.AttachmentsViewHolder>(AttachmentDiffCallback()) {
 
-    private val config = activity.config
+    private val config = activity.config_sms
     private val resources = activity.resources
     private val primaryColor = activity.getProperPrimaryColor()
     private val imageCompressor by lazy { ImageCompressor(activity) }

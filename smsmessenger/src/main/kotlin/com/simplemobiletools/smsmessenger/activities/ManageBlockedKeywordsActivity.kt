@@ -16,7 +16,7 @@ import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.databinding.ActivityManageBlockedKeywordsBinding
 import com.simplemobiletools.smsmessenger.dialogs.AddBlockedKeywordDialog
 import com.simplemobiletools.smsmessenger.dialogs.ManageBlockedKeywordsAdapter
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.extensions.toArrayList
 
 class ManageBlockedKeywordsActivity : BaseSimpleActivity(), RefreshRecyclerViewListener {
@@ -75,7 +75,7 @@ class ManageBlockedKeywordsActivity : BaseSimpleActivity(), RefreshRecyclerViewL
 
     private fun updateBlockedKeywords() {
         ensureBackgroundThread {
-            val blockedKeywords = config.blockedKeywords
+            val blockedKeywords = config_sms.blockedKeywords
             runOnUiThread {
                 ManageBlockedKeywordsAdapter(this, blockedKeywords.toArrayList(), this, binding.manageBlockedKeywordsList) {
                     addOrEditBlockedKeyword(it as String)

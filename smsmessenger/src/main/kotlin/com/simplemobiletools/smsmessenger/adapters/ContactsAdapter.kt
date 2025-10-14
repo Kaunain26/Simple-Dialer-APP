@@ -66,13 +66,13 @@ class ContactsAdapter(
             itemContactName.apply {
                 text = contact.name
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
             }
 
             itemContactNumber.apply {
                 text = TextUtils.join(", ", contact.phoneNumbers.map { it.normalizedNumber })
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+               // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
             }
 
             SimpleContactsHelper(activity).loadContactImage(contact.photoUri, itemContactImage, contact.name)

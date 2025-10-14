@@ -98,4 +98,8 @@ dependencies {
     implementation(libs.autofit.text.view)
     implementation(libs.kotlinx.serialization.json)
     implementation(project(":smsmessenger"))
+
+    //Dynamic layout
+    implementation(libs.ssp.android)
+    implementation(libs.sdp.android)
 }

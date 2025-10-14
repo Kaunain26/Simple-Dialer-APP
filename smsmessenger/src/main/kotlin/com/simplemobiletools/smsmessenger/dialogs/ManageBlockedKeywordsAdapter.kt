@@ -12,7 +12,7 @@ import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.databinding.ItemManageBlockedKeywordBinding
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 class ManageBlockedKeywordsAdapter(
     activity: BaseSimpleActivity, var blockedKeywords: ArrayList<String>, val listener: RefreshRecyclerViewListener?,
@@ -136,7 +136,7 @@ class ManageBlockedKeywordsAdapter(
 
         getSelectedItems().forEach {
             deleteBlockedKeywords.add(it)
-            activity.config.removeBlockedKeyword(it)
+            activity.config_sms.removeBlockedKeyword(it)
         }
 
         blockedKeywords.removeAll(deleteBlockedKeywords)

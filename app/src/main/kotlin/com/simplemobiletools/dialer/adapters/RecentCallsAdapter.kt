@@ -10,6 +10,7 @@ import android.view.*
 import android.widget.PopupMenu
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
@@ -41,6 +42,8 @@ class RecentCallsAdapter(
     var fontSize: Float = activity.getTextSize()
     private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
     private val redColor = resources.getColor(R.color.md_red_700)
+    private val blue_color = resources.getColor(R.color.color_primary)
+    private val green_color = resources.getColor(R.color.md_green)
     private var textToHighlight = ""
     private var durationPadding = resources.getDimension(R.dimen.normal_margin).toInt()
 
@@ -132,9 +135,9 @@ class RecentCallsAdapter(
     }
 
     fun initDrawables() {
-        outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.getProperTextColor())
-        incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.getProperTextColor())
-        incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
+        outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, blue_color)
+        incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, green_color)
+        incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_missed, redColor)
     }
 
     private fun callContact(useSimOne: Boolean) {
@@ -304,20 +307,20 @@ class RecentCallsAdapter(
             itemRecentsName.apply {
                 text = nameToShow
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
+               // setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
             }
 
             itemRecentsDateTime.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
             }
 
             itemRecentsDuration.apply {
                 text = call.duration.getFormattedDuration()
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
+               // setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
                 if (!showOverflowMenu) {
                     itemRecentsDuration.setPadding(0, 0, durationPadding, 0)
                 }
@@ -334,20 +337,40 @@ class RecentCallsAdapter(
             SimpleContactsHelper(root.context).loadContactImage(call.photoUri, itemRecentsImage, call.name)
 
             val drawable = when (call.type) {
-                Calls.OUTGOING_TYPE -> outgoingCallIcon
-                Calls.MISSED_TYPE -> incomingMissedCallIcon
-                else -> incomingCallIcon
+                Calls.OUTGOING_TYPE -> {
+                    binding.itemCallStatus.text = root.context.getString(R.string.outgoing)
+                    outgoingCallIcon
+                }
+                Calls.MISSED_TYPE -> {
+                    binding.itemCallStatus.text = root.context.getString(R.string.missed_call)
+                    incomingMissedCallIcon
+                }
+                else -> {
+                    binding.itemCallStatus.text = root.context.getString(R.string.incoming)
+                    incomingCallIcon
+                }
             }
 
             itemRecentsType.setImageDrawable(drawable)
 
             overflowMenuIcon.beVisibleIf(showOverflowMenu)
-            overflowMenuIcon.drawable.apply {
-                mutate()
-                setTint(activity.getProperTextColor())
-            }
-            overflowMenuIcon.setOnClickListener {
-                showPopupMenu(overflowMenuAnchor, call)
+            if (showOverflowMenu) {
+                overflowMenuIcon.setOnClickListener {
+                    if (activity.config.showCallConfirmation) {
+                        CallConfirmationDialog(activity, call.name) {
+                            activity.launchCallIntent(call.phoneNumber)
+                        }
+                    } else {
+                        activity.launchCallIntent(call.phoneNumber)
+                    }
+                }
+                overflowMenuIcon.setOnLongClickListener {
+                    showPopupMenu(overflowMenuAnchor, call)
+                    true
+                }
+            } else {
+                overflowMenuIcon.setOnClickListener(null)
+                overflowMenuIcon.setOnLongClickListener(null)
             }
         }
     }

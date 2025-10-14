@@ -7,7 +7,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.smsmessenger.activities.SimpleActivity
 import com.simplemobiletools.smsmessenger.dialogs.ImportMessagesDialog
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.models.*
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
@@ -18,7 +18,7 @@ import java.io.InputStream
 class MessagesImporter(private val activity: SimpleActivity) {
 
     private val messageWriter = MessagesWriter(activity)
-    private val config = activity.config
+    private val config = activity.config_sms
     private var messagesImported = 0
     private var messagesFailed = 0
 

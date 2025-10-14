@@ -12,7 +12,6 @@
         <item name="android:colorBackground">@color/color_background</item>
         <!--        <item name="android:colorBackground">@color/color_background</item>-->
         <item name="android:windowBackground">@color/color_background</item>
-        <!--        <item name="materialToolbarStyle">@style/AppTheme.Toolbar</item>-->
         <item name="materialCardViewStyle">@style/AppTheme.Card</item>
         <item name="materialButtonStyle">@style/AppTheme.Button</item>
         <item name="materialButtonOutlinedStyle">@style/AppTheme.Button.Outlined</item>

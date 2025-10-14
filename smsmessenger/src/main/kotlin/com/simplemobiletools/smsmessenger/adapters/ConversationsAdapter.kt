@@ -1,10 +1,10 @@
 package com.simplemobiletools.smsmessenger.adapters
 
+import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import android.view.Menu
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.KEY_PHONE
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -19,7 +19,7 @@ import com.simplemobiletools.smsmessenger.messaging.isShortCodeWithLetters
 import com.simplemobiletools.smsmessenger.models.Conversation
 
 class ConversationsAdapter(
-    activity: SimpleActivity, recyclerView: MyRecyclerView, onRefresh: () -> Unit, itemClick: (Any) -> Unit
+    activity: Context, recyclerView: MyRecyclerView, onRefresh: () -> Unit, itemClick: (Any) -> Unit
 ) : BaseConversationsAdapter(activity, recyclerView, onRefresh, itemClick) {
     override fun getActionMenuId() = R.menu.cab_conversations
 
@@ -28,7 +28,7 @@ class ConversationsAdapter(
         val isSingleSelection = isOneItemSelected()
         val selectedConversation = selectedItems.firstOrNull() ?: return
         val isGroupConversation = selectedConversation.isGroupConversation
-        val archiveAvailable = activity.config.isArchiveAvailable
+        val archiveAvailable = activity.config_sms.isArchiveAvailable
 
         menu.apply {
             findItem(R.id.cab_block_number).title = activity.addLockedLabelIfNeeded(com.simplemobiletools.commons.R.string.block_number)
@@ -262,9 +262,9 @@ class ConversationsAdapter(
         }
 
         if (pin) {
-            activity.config.addPinnedConversations(conversations)
+            activity.config_sms.addPinnedConversations(conversations)
         } else {
-            activity.config.removePinnedConversations(conversations)
+            activity.config_sms.removePinnedConversations(conversations)
         }
 
         getSelectedItemPositions().forEach {
@@ -274,7 +274,7 @@ class ConversationsAdapter(
     }
 
     private fun checkPinBtnVisibility(menu: Menu) {
-        val pinnedConversations = activity.config.pinnedConversations
+        val pinnedConversations = activity.config_sms.pinnedConversations
         val selectedConversations = getSelectedItems()
         menu.findItem(R.id.cab_pin_conversation).isVisible = selectedConversations.any { !pinnedConversations.contains(it.threadId.toString()) }
         menu.findItem(R.id.cab_unpin_conversation).isVisible = selectedConversations.any { pinnedConversations.contains(it.threadId.toString()) }

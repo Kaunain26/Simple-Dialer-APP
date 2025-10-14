@@ -7,7 +7,7 @@ import com.klinker.android.send_message.Settings
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.smsmessenger.R
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.extensions.messagingUtils
 import com.simplemobiletools.smsmessenger.messaging.SmsException.Companion.EMPTY_DESTINATION_ADDRESS
 import com.simplemobiletools.smsmessenger.messaging.SmsException.Companion.ERROR_PERSISTING_MESSAGE
@@ -18,10 +18,10 @@ import com.simplemobiletools.smsmessenger.models.Attachment
 fun Context.getSendMessageSettings(): Settings {
     val settings = Settings()
     settings.useSystemSending = true
-    settings.deliveryReports = config.enableDeliveryReports
-    settings.sendLongAsMms = config.sendLongMessageMMS
+    settings.deliveryReports = config_sms.enableDeliveryReports
+    settings.sendLongAsMms = config_sms.sendLongMessageMMS
     settings.sendLongAsMmsAfter = 1
-    settings.group = config.sendGroupMessageMMS
+    settings.group = config_sms.sendGroupMessageMMS
     return settings
 }
 

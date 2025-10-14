@@ -7,7 +7,7 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.showKeyboard
 import com.simplemobiletools.commons.extensions.value
 import com.simplemobiletools.smsmessenger.databinding.DialogAddBlockedKeywordBinding
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 class AddBlockedKeywordDialog(val activity: BaseSimpleActivity, private val originalKeyword: String? = null, val callback: () -> Unit) {
     init {
@@ -26,11 +26,11 @@ class AddBlockedKeywordDialog(val activity: BaseSimpleActivity, private val orig
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val newBlockedKeyword = binding.addBlockedKeywordEdittext.value
                         if (originalKeyword != null && newBlockedKeyword != originalKeyword) {
-                            activity.config.removeBlockedKeyword(originalKeyword)
+                            activity.config_sms.removeBlockedKeyword(originalKeyword)
                         }
 
                         if (newBlockedKeyword.isNotEmpty()) {
-                            activity.config.addBlockedKeyword(newBlockedKeyword)
+                            activity.config_sms.addBlockedKeyword(newBlockedKeyword)
                         }
 
                         callback()

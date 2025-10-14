@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.dialer.fragments.BlockedTabFragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blocked_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10ssp">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/blocked_toggle_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:checkedButton="@id/blocked_calls_button"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/blocked_calls_button"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:text="@string/blocked_calls"
+                android:textAllCaps="false"
+                app:cornerRadius="20dp"
+                app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/blocked_settings_button"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/block_settings_tab"
+                android:textAllCaps="false"
+                app:cornerRadius="20dp"
+                app:strokeWidth="1dp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.simplemobiletools.commons.views.MyRecyclerView
+            android:id="@+id/blocked_numbers_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbars="vertical"
+            app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"
+            tools:listitem="@layout/item_blocked_number" />
+
+        <LinearLayout
+            android:id="@+id/blocked_numbers_placeholder_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:visibility="gone">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/blocked_numbers_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/no_blocked_numbers_found"
+                android:textSize="@dimen/bigger_text_size"
+                android:textStyle="italic" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/manage_blocked_numbers_button"
+                style="@style/AppTheme.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:text="@string/manage_blocked_numbers"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.simplemobiletools.dialer.fragments.BlockedTabFragment>

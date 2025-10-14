@@ -3,6 +3,10 @@ package com.simplemobiletools.dialer.fragments
 import android.content.Context
 import android.provider.CallLog.Calls
 import android.util.AttributeSet
+import android.graphics.Color
+import android.content.res.ColorStateList
+import androidx.core.content.ContextCompat
+import com.google.android.material.button.MaterialButton
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
@@ -62,8 +66,11 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                 R.id.recents_filter_spam -> CallHistoryFilter.SPAM
                 else -> CallHistoryFilter.ALL
             }
+            updateToggleAppearance()
             updateDisplayedRecents()
         }
+
+        updateToggleAppearance()
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
@@ -74,6 +81,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             initDrawables()
             updateTextColor(textColor)
         }
+
+        updateToggleAppearance()
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
@@ -243,6 +252,45 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun onSearchQueryChanged(text: String) {
         currentSearchQuery = text
         updateDisplayedRecents()
+    }
+
+    private fun updateToggleAppearance() {
+        val primaryColor = activity?.getProperPrimaryColor() ?: context.getProperPrimaryColor()
+        val neutralColor = ContextCompat.getColor(context, R.color.bottom_nav_unselected)
+        val strokeWidth = resources.getDimensionPixelSize(R.dimen.toggle_stroke_width)
+        val contrastOnPrimary = primaryColor.getContrastColor()
+
+        val iconDefaults = mapOf(
+            R.id.recents_filter_all to neutralColor,
+            R.id.recents_filter_missed to ContextCompat.getColor(context, R.color.md_red),
+            R.id.recents_filter_incoming to ContextCompat.getColor(context, R.color.md_green),
+            R.id.recents_filter_outgoing to ContextCompat.getColor(context, R.color.color_primary),
+            R.id.recents_filter_spam to ContextCompat.getColor(context, R.color.md_red)
+        )
+
+        val checkedId = binding.recentsFilterGroup.checkedButtonId
+        for (i in 0 until binding.recentsFilterGroup.childCount) {
+            val button = binding.recentsFilterGroup.getChildAt(i) as? MaterialButton ?: continue
+            val isSelected = button.id == checkedId
+            val iconDefault = iconDefaults[button.id]
+
+            button.strokeWidth = strokeWidth
+            if (isSelected) {
+                button.strokeColor = ColorStateList.valueOf(primaryColor)
+                button.backgroundTintList = ColorStateList.valueOf(primaryColor)
+                button.setTextColor(contrastOnPrimary)
+                iconDefault?.let {
+                    button.iconTint = ColorStateList.valueOf(contrastOnPrimary)
+                }
+            } else {
+                button.strokeColor = ColorStateList.valueOf(neutralColor)
+                button.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+                button.setTextColor(neutralColor)
+                iconDefault?.let {
+                    button.iconTint = ColorStateList.valueOf(it)
+                }
+            }
+        }
     }
 }
 

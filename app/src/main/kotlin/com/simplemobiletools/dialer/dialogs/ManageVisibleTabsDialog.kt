@@ -12,6 +12,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.databinding.DialogManageVisibleTabsBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.ALL_TABS_MASK
+import com.simplemobiletools.dialer.helpers.TAB_BLOCKED
 
 class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
     private val binding by activity.viewBinding(DialogManageVisibleTabsBinding::inflate)
@@ -22,6 +23,7 @@ class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
             put(TAB_CALL_HISTORY, R.id.manage_visible_tabs_call_history)
             put(TAB_CONTACTS, R.id.manage_visible_tabs_contacts)
             put(TAB_MESSAGES, R.id.manage_visible_tabs_messages)
+            put(TAB_BLOCKED, R.id.manage_visible_tabs_blocked)
         }
 
         val showTabs = activity.config.showTabs

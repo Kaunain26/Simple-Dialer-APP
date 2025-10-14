@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.simplemobiletools.dialer.fragments.RecentsFragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recents_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,18 +23,18 @@
             android:id="@+id/recents_filter_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:selectionRequired="true"
             app:checkedButton="@id/recents_filter_all"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/recents_filter_all"
-                style="@style/AppTheme.Button.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:checked="true"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp"
                 android:text="@string/filter_all"
@@ -43,71 +44,71 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/recents_filter_missed"
-                style="@style/AppTheme.Button.Outlined"
-                android:minWidth="0dp"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:paddingHorizontal="20dp"
-                app:icon="@drawable/ic_missed"
-                app:iconPadding="10dp"
-                app:iconTint="@color/md_red"
                 android:paddingVertical="10dp"
                 android:text="@string/filter_missed"
                 android:textAllCaps="false"
                 app:checkedIcon="@null"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_missed"
+                app:iconPadding="10dp"
+                app:iconTint="@color/md_red" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/recents_filter_incoming"
-                style="@style/AppTheme.Button.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                app:iconPadding="10dp"
-                app:iconTint="@color/md_green"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp"
-                app:icon="@drawable/ic_incoming"
                 android:text="@string/filter_incoming"
                 android:textAllCaps="false"
                 app:checkedIcon="@null"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_incoming"
+                app:iconPadding="10dp"
+                app:iconTint="@color/md_green" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/recents_filter_outgoing"
-                style="@style/AppTheme.Button.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp"
-                app:iconPadding="10dp"
-                app:iconTint="@color/color_primary"
                 android:text="@string/filter_outgoing"
-                app:icon="@drawable/ic_outgoing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 app:checkedIcon="@null"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_outgoing"
+                app:iconPadding="10dp"
+                app:iconTint="@color/color_primary" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/recents_filter_spam"
-                style="@style/AppTheme.Button.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:paddingHorizontal="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:icon="@drawable/ic_spam"
-                app:iconPadding="10dp"
-                app:iconTint="@color/md_red"
                 android:paddingVertical="10dp"
                 android:text="@string/filter_spam"
                 android:textAllCaps="false"
                 app:checkedIcon="@null"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_spam"
+                app:iconPadding="10dp"
+                app:iconTint="@color/md_red" />
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </HorizontalScrollView>
@@ -116,8 +117,8 @@
         android:id="@+id/recents_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/recents_filter_scroll"
+        android:layout_centerHorizontal="true"
         android:alpha="0.8"
         android:gravity="center"
         android:paddingStart="@dimen/activity_margin"
@@ -139,7 +140,8 @@
         android:padding="@dimen/activity_margin"
         android:text="@string/request_access"
         android:textSize="@dimen/bigger_text_size"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.simplemobiletools.commons.views.MyRecyclerView
         android:id="@+id/recents_list"
@@ -149,7 +151,10 @@
         android:layout_alignParentBottom="true"
         android:clipToPadding="false"
         android:layoutAnimation="@anim/layout_animation"
+        android:paddingBottom="@dimen/_55ssp"
         android:scrollbars="none"
-        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"
+        tools:listitem="@layout/item_recent_call" />
+
 
 </com.simplemobiletools.dialer.fragments.RecentsFragment>

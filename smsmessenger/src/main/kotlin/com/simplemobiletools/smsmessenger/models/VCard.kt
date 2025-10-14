@@ -2,7 +2,7 @@ package com.simplemobiletools.smsmessenger.models
 
 import android.content.Context
 import com.simplemobiletools.commons.extensions.normalizePhoneNumber
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.extensions.format
 import com.simplemobiletools.smsmessenger.helpers.parseNameFromVCard
 import ezvcard.VCard
@@ -55,12 +55,12 @@ data class VCardPropertyWrapper(val value: String, val type: String, val propert
                         property = property
                     )
                     is Birthday -> VCardPropertyWrapper(
-                        value = date.format(context.config.dateFormat),
+                        value = date.format(context.config_sms.dateFormat),
                         type = context.getString(com.simplemobiletools.commons.R.string.birthday),
                         property = property
                     )
                     is Anniversary -> VCardPropertyWrapper(
-                        value = date.format(context.config.dateFormat),
+                        value = date.format(context.config_sms.dateFormat),
                         type = context.getString(com.simplemobiletools.commons.R.string.anniversary),
                         property = property
                     )

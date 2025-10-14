@@ -61,4 +61,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
+    //Dynamic layout
+    implementation(libs.ssp.android)
+    implementation(libs.sdp.android)
 }

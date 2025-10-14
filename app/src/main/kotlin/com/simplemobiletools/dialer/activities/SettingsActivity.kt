@@ -20,6 +20,7 @@ import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.helpers.TAB_BLOCKED
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
@@ -170,6 +171,7 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(TAB_CALL_HISTORY, getString(R.string.call_history_tab)),
                 RadioItem(TAB_CONTACTS, getString(R.string.contacts_tab)),
                 RadioItem(TAB_MESSAGES, getString(R.string.messages_tab)),
+                RadioItem(TAB_BLOCKED, getString(R.string.blocked_numbers_tab)),
                 RadioItem(TAB_LAST_USED, getString(R.string.last_used_tab))
             )
 
@@ -185,6 +187,7 @@ class SettingsActivity : SimpleActivity() {
             TAB_CALL_HISTORY -> R.string.call_history_tab
             TAB_CONTACTS -> R.string.contacts_tab
             TAB_MESSAGES -> R.string.messages_tab
+            TAB_BLOCKED -> R.string.blocked_numbers_tab
             else -> R.string.last_used_tab
         }
     )

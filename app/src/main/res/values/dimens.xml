@@ -14,4 +14,5 @@
     <dimen name="dialpad_text_size">28dp</dimen>
     <dimen name="dialpad_letters_text_size">12dp</dimen>
     <dimen name="filter_toggle_spacing">8dp</dimen>
+    <dimen name="toggle_stroke_width">2dp</dimen>
 </resources>

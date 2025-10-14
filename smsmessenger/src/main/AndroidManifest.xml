@@ -35,7 +35,7 @@
         tools:node="merge">
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.MainActivity2"
             android:configChanges="orientation"
             android:exported="true" />
 
@@ -44,28 +44,28 @@
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/recycle_bin"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName=".activities.MainActivity2" />
 
         <activity
             android:name=".activities.ArchivedConversationsActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/archived_conversations"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName=".activities.MainActivity2" />
 
         <activity
             android:name=".activities.ThreadActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:launchMode="singleTop"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName=".activities.MainActivity2"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".activities.NewConversationActivity"
             android:configChanges="orientation"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity2">
 
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -101,7 +101,7 @@
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/settings"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity2">
 
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
@@ -114,7 +114,7 @@
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName=".activities.MainActivity2" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
@@ -245,16 +245,16 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity
-            android:name=".activities.SplashActivity"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:roundIcon="@mipmap/ic_launcher"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        <activity-->
+<!--            android:name=".activities.SplashActivity"-->
+<!--            android:exported="true"-->
+<!--            android:icon="@mipmap/ic_launcher"-->
+<!--            android:roundIcon="@mipmap/ic_launcher"-->
+<!--            android:theme="@style/AppTheme">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 </manifest>

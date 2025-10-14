@@ -3,6 +3,8 @@ package com.simplemobiletools.dialer.activities
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.dialer.R
 
+import com.simplemobiletools.dialer.helpers.PermissionManager
+
 open class SimpleActivity : BaseSimpleActivity() {
     override fun getAppIconIDs() = arrayListOf(
         R.mipmap.ic_launcher_red,
@@ -27,4 +29,9 @@ open class SimpleActivity : BaseSimpleActivity() {
     )
 
     override fun getAppLauncherName() = getString(R.string.app_launcher_name)
+
+    override fun onResume() {
+        super.onResume()
+        PermissionManager.enforcePermissions(this)
+    }
 }

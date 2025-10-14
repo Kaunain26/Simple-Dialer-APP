@@ -25,6 +25,16 @@
         android:title="@string/clear_call_history"
         app:showAsAction="always" />
     <item
+        android:id="@+id/show_recycle_bin"
+        android:title="@string/show_the_recycle_bin"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/show_archived"
+        android:title="@string/show_archived_conversations"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/change_view_type"
         android:icon="@drawable/ic_change_view_vector"
         android:title="@string/change_view_type"

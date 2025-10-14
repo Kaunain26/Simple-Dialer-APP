@@ -1,10 +1,12 @@
 package com.simplemobiletools.smsmessenger.adapters
 
+import android.content.Context
 import android.util.TypedValue
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.getTextSize
 import com.simplemobiletools.commons.extensions.highlightTextPart
@@ -15,8 +17,8 @@ import com.simplemobiletools.smsmessenger.databinding.ItemSearchResultBinding
 import com.simplemobiletools.smsmessenger.models.SearchResult
 
 class SearchResultsAdapter(
-    activity: SimpleActivity, var searchResults: ArrayList<SearchResult>, recyclerView: MyRecyclerView, highlightText: String, itemClick: (Any) -> Unit
-) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+    activity: Context, var searchResults: ArrayList<SearchResult>, recyclerView: MyRecyclerView, highlightText: String, itemClick: (Any) -> Unit
+) : MyRecyclerViewAdapter(activity as BaseSimpleActivity, recyclerView, itemClick) {
 
     private var fontSize = activity.getTextSize()
     private var textToHighlight = highlightText
@@ -70,19 +72,19 @@ class SearchResultsAdapter(
             searchResultTitle.apply {
                 text = searchResult.title.highlightTextPart(textToHighlight, properPrimaryColor)
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
+                //setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 1.2f)
             }
 
             searchResultSnippet.apply {
                 text = searchResult.snippet.highlightTextPart(textToHighlight, properPrimaryColor)
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.9f)
+                // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.9f)
             }
 
             searchResultDate.apply {
                 text = searchResult.date
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+                // setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
             }
 
             SimpleContactsHelper(activity).loadContactImage(searchResult.photoUri, searchResultImage, searchResult.title)

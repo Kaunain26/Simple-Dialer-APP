@@ -34,6 +34,9 @@ app-build-kotlinJVMTarget = "17"
 app-version-appId = "com.simplemobiletools.dialer"
 app-version-versionCode = "57"
 app-version-versionName = "5.18.1"
+sspAndroid = "1.1.1"
+sdpAndroid = "1.1.1"
+
 [libraries]
 #Simple Mobile Tools
 simple-tools-commons = { module = "com.kn.commons:commons", version.ref = "simple-commons" }
@@ -56,6 +59,9 @@ android-smsmms = { module = "com.github.tibbi:android-smsmms", version.ref = "an
 #Helpers
 ez-vcard = { module = "com.googlecode.ez-vcard:ez-vcard", version.ref = "ez-vcard" }
 shortcut-badger = { module = "me.leolin:ShortcutBadger", version.ref = "shortcut-badger" }
+ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
+sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
+
 [bundles]
 room = [
     "androidx-room-ktx",

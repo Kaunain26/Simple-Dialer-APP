@@ -29,7 +29,7 @@ class DirectReplyReceiver : BroadcastReceiver() {
             var subscriptionId: Int? = null
             val availableSIMs = context.subscriptionManagerCompat().activeSubscriptionInfoList
             if ((availableSIMs?.size ?: 0) > 1) {
-                val currentSIMCardIndex = context.config.getUseSIMIdAtNumber(address)
+                val currentSIMCardIndex = context.config_sms.getUseSIMIdAtNumber(address)
                 val wantedId = availableSIMs.getOrNull(currentSIMCardIndex)
                 if (wantedId != null) {
                     subscriptionId = wantedId.subscriptionId

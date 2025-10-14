@@ -6,7 +6,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.BasePropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.smsmessenger.R
-import com.simplemobiletools.smsmessenger.extensions.config
+import com.simplemobiletools.smsmessenger.extensions.config_sms
 import com.simplemobiletools.smsmessenger.extensions.subscriptionManagerCompat
 import com.simplemobiletools.smsmessenger.models.Message
 import org.joda.time.DateTime
@@ -69,6 +69,6 @@ class MessageDetailsDialog(val activity: BaseSimpleActivity, val message: Messag
     }
 
     private fun Message.getSentOrReceivedAt(): String {
-        return DateTime(date * 1000L).toString("${activity.config.dateFormat} ${activity.getTimeFormat()}")
+        return DateTime(date * 1000L).toString("${activity.config_sms.dateFormat} ${activity.getTimeFormat()}")
     }
 }

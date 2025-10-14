@@ -35,6 +35,7 @@
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/activity_margin"
             android:src="@drawable/ic_dialpad_vector"
+            android:visibility="visible"
             app:backgroundTint="@color/color_primary"
             app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,10 +44,9 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_tabs_holder"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_60ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:tabIndicator="@null"
-            app:tabMinWidth="150dp"
             app:tabRippleColor="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

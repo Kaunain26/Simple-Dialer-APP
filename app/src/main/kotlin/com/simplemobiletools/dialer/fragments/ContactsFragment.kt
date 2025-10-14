@@ -1,7 +1,10 @@
 package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
@@ -68,8 +71,11 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             } else {
                 ContactsFilter.ALL
             }
+            updateToggleAppearance()
             updateDisplayedContacts()
         }
+
+        updateToggleAppearance()
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
@@ -83,6 +89,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             letterFastscrollerThumb.setupWithFastScroller(letterFastscroller)
             letterFastscrollerThumb.textColor = properPrimaryColor.getContrastColor()
             letterFastscrollerThumb.thumbColor = properPrimaryColor.getColorStateList()
+
+            updateToggleAppearance()
         }
     }
 
@@ -197,6 +205,28 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 FastScrollItemIndicator.Text("")
             }
         })
+    }
+
+    private fun updateToggleAppearance() {
+        val primaryColor = activity?.getProperPrimaryColor() ?: context.getProperPrimaryColor()
+        val neutralColor = ContextCompat.getColor(context, R.color.bottom_nav_unselected)
+        val strokeWidth = resources.getDimensionPixelSize(R.dimen.toggle_stroke_width)
+        val contrast = primaryColor.getContrastColor()
+        val checkedId = binding.contactsFilterGroup.checkedButtonId
+
+        listOf(binding.contactsFilterAll, binding.contactsFilterFavourite).forEach { materialButton ->
+            val isSelected = materialButton.id == checkedId
+            materialButton.strokeWidth = strokeWidth
+            if (isSelected) {
+                materialButton.strokeColor = ColorStateList.valueOf(primaryColor)
+                materialButton.backgroundTintList = ColorStateList.valueOf(primaryColor)
+                materialButton.setTextColor(contrast)
+            } else {
+                materialButton.strokeColor = ColorStateList.valueOf(neutralColor)
+                materialButton.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+                materialButton.setTextColor(neutralColor)
+            }
+        }
     }
 
     override fun onSearchClosed() {
