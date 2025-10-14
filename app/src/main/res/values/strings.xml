@@ -78,6 +78,15 @@
     <string name="call_add">Add call</string>
     <string name="conference_manage">Manage conference call</string>
     <string name="conference">Conference</string>
+    <string name="call_overlay_incoming_title">Incoming call</string>
+    <string name="call_overlay_missed_title">Missed call</string>
+    <string name="call_overlay_ended_title">Call ended</string>
+    <string name="call_overlay_ended_with_duration">Call ended · %1$s</string>
+    <string name="call_overlay_close_content_description">Dismiss caller overlay</string>
+    <string name="call_overlay_view_profile">View profile</string>
+    <string name="call_overlay_action_call">Call</string>
+    <string name="call_overlay_action_message">Message</string>
+    <string name="call_overlay_action_edit">Edit contact</string>
     <string name="audio_route_speaker">Speaker</string>
     <string name="audio_route_earpiece">Earpiece</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
