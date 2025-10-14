@@ -15,4 +15,26 @@
     <dimen name="dialpad_letters_text_size">12dp</dimen>
     <dimen name="filter_toggle_spacing">8dp</dimen>
     <dimen name="toggle_stroke_width">2dp</dimen>
+
+    <!-- Call overlay specific dimensions -->
+    <dimen name="call_overlay_side_margin">16dp</dimen>
+    <dimen name="call_overlay_bottom_padding">16dp</dimen>
+    <dimen name="call_overlay_card_radius">16dp</dimen>
+    <dimen name="call_overlay_card_elevation">6dp</dimen>
+    <dimen name="call_overlay_card_stroke_width">1dp</dimen>
+    <dimen name="call_overlay_content_padding">16dp</dimen>
+    <dimen name="call_overlay_content_spacing">12dp</dimen>
+    <dimen name="call_overlay_header_bottom_padding">12dp</dimen>
+    <dimen name="call_overlay_section_spacing">16dp</dimen>
+    <dimen name="call_overlay_avatar_size">56dp</dimen>
+    <dimen name="call_overlay_close_size">40dp</dimen>
+    <dimen name="call_overlay_profile_margin_top">16dp</dimen>
+    <dimen name="call_overlay_actions_padding">16dp</dimen>
+    <dimen name="call_overlay_action_padding">12dp</dimen>
+    <dimen name="call_overlay_action_icon_size">32dp</dimen>
+    <dimen name="call_overlay_action_text_size">12sp</dimen>
+    <dimen name="call_overlay_name_text_size">18sp</dimen>
+    <dimen name="call_overlay_subtitle_text_size">14sp</dimen>
+    <dimen name="call_overlay_status_text_size">14sp</dimen>
+    <dimen name="call_overlay_number_text_size">14sp</dimen>
 </resources>
