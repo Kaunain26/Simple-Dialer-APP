@@ -18,6 +18,7 @@
 
     <!-- Call overlay specific dimensions -->
     <dimen name="call_overlay_side_margin">16dp</dimen>
+    <dimen name="call_overlay_top_offset">32dp</dimen>
     <dimen name="call_overlay_bottom_padding">16dp</dimen>
     <dimen name="call_overlay_card_radius">16dp</dimen>
     <dimen name="call_overlay_card_elevation">6dp</dimen>
