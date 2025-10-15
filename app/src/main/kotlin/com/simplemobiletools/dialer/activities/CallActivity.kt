@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.annotation.SuppressLint
 import android.app.KeyguardManager
@@ -25,13 +25,13 @@ import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleListItem
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.ActivityCallBinding
-import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
-import com.simplemobiletools.dialer.extensions.*
-import com.simplemobiletools.dialer.helpers.*
-import com.simplemobiletools.dialer.models.AudioRoute
-import com.simplemobiletools.dialer.models.CallContact
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.ActivityCallBinding
+import app.trusted.callerid.sms.dialogs.DynamicBottomSheetChooserDialog
+import app.trusted.callerid.sms.extensions.*
+import app.trusted.callerid.sms.helpers.*
+import app.trusted.callerid.sms.models.AudioRoute
+import app.trusted.callerid.sms.models.CallContact
 import kotlin.math.max
 import kotlin.math.min
 
@@ -790,7 +790,7 @@ class CallActivity : SimpleActivity() {
 
         try {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-            screenOnWakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "com.simplemobiletools.dialer.pro:full_wake_lock")
+            screenOnWakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "app.trusted.callerid.sms.pro:full_wake_lock")
             screenOnWakeLock!!.acquire(5 * 1000L)
         } catch (e: Exception) {
         }
@@ -799,7 +799,7 @@ class CallActivity : SimpleActivity() {
     private fun enableProximitySensor() {
         if (!config.disableProximitySensor && (proximityWakeLock == null || proximityWakeLock?.isHeld == false)) {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-            proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
+            proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "app.trusted.callerid.sms.pro:wake_lock")
             proximityWakeLock!!.acquire(60 * MINUTE_SECONDS * 1000L)
         }
     }

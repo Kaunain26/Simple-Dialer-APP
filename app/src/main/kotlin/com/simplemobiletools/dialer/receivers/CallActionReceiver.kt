@@ -1,12 +1,12 @@
-package com.simplemobiletools.dialer.receivers
+package app.trusted.callerid.sms.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.simplemobiletools.dialer.activities.CallActivity
-import com.simplemobiletools.dialer.helpers.ACCEPT_CALL
-import com.simplemobiletools.dialer.helpers.CallManager
-import com.simplemobiletools.dialer.helpers.DECLINE_CALL
+import app.trusted.callerid.sms.activities.CallActivity
+import app.trusted.callerid.sms.helpers.ACCEPT_CALL
+import app.trusted.callerid.sms.helpers.CallManager
+import app.trusted.callerid.sms.helpers.DECLINE_CALL
 
 class CallActionReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

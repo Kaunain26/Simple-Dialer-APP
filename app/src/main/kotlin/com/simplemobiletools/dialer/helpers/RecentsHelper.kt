@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -7,10 +7,10 @@ import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
-import com.simplemobiletools.dialer.models.RecentCall
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.extensions.getAvailableSIMCardLabels
+import app.trusted.callerid.sms.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9

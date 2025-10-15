@@ -10,7 +10,7 @@ plugins {
 }
 
 base {
-    archivesName.set("dialer")
+    archivesName.set("caller-app-release.apk")
 }
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
@@ -47,28 +47,25 @@ android {
         buildConfig = true
     }
 
-   /* buildTypes {
-        debug {
-            applicationIdSuffix = ".debug"
-        }
+    buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            if (keystorePropertiesFile.exists()) {
-                signingConfig = signingConfigs.getByName("release")
-            }
+            //if (keystorePropertiesFile.exists()) {
+            //    signingConfig = signingConfigs.getByName("release")
+            // }
         }
-    }*/
-
-    flavorDimensions.add("variants")
-    productFlavors {
-        register("core")
-        register("fdroid")
-        register("prepaid")
     }
+
+    // flavorDimensions.add("variants")
+    // productFlavors {
+    //     register("core")
+    //     register("fdroid")
+    //     register("prepaid")
+    // }
 
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
@@ -86,10 +83,10 @@ android {
 
     namespace = libs.versions.app.version.appId.get()
 
-    lint {
-        checkReleaseBuilds = false
-        abortOnError = false
-    }
+    // lint {
+    //     checkReleaseBuilds = false
+    //     abortOnError = false
+    // }
 }
 
 dependencies {
@@ -102,4 +99,10 @@ dependencies {
     //Dynamic layout
     implementation(libs.ssp.android)
     implementation(libs.sdp.android)
+
+    implementation(libs.geocoder)
+
+    //dot indicator
+    implementation("com.tbuonomo:dotsindicator:5.0")
 }
+

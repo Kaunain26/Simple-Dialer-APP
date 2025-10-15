@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beGoneIf
@@ -6,9 +6,9 @@ import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.DialogChangeSortingBinding
-import com.simplemobiletools.dialer.extensions.config
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.DialogChangeSortingBinding
+import app.trusted.callerid.sms.extensions.config
 
 class ChangeSortingDialog(val activity: BaseSimpleActivity, private val showCustomSorting: Boolean = false, private val callback: () -> Unit) {
     private val binding by activity.viewBinding(DialogChangeSortingBinding::inflate)

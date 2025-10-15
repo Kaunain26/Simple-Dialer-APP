@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.extensions
+package app.trusted.callerid.sms.extensions
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -12,9 +12,9 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.activities.DialerActivity
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.dialogs.SelectSIMDialog
+import app.trusted.callerid.sms.activities.DialerActivity
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.dialogs.SelectSIMDialog
 
 fun SimpleActivity.startCallIntent(recipient: String) {
     if (isDefaultDialer()) {

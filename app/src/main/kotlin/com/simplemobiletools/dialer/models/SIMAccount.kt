@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.models
+package app.trusted.callerid.sms.models
 
 import android.telecom.PhoneAccountHandle
 

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.content.ComponentName
 import android.content.Context
@@ -6,9 +6,9 @@ import android.telecom.PhoneAccountHandle
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
-import com.simplemobiletools.dialer.extensions.getPhoneAccountHandleModel
-import com.simplemobiletools.dialer.extensions.putPhoneAccountHandle
-import com.simplemobiletools.dialer.models.SpeedDial
+import app.trusted.callerid.sms.extensions.getPhoneAccountHandleModel
+import app.trusted.callerid.sms.extensions.putPhoneAccountHandle
+import app.trusted.callerid.sms.models.SpeedDial
 
 class Config(context: Context) : BaseConfig(context) {
     companion object {

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
@@ -8,11 +8,11 @@ import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.helpers.TAB_CONTACTS
 import com.simplemobiletools.commons.helpers.TAB_MESSAGES
 import com.simplemobiletools.commons.views.MyAppCompatCheckbox
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.DialogManageVisibleTabsBinding
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.ALL_TABS_MASK
-import com.simplemobiletools.dialer.helpers.TAB_BLOCKED
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.DialogManageVisibleTabsBinding
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.helpers.ALL_TABS_MASK
+import app.trusted.callerid.sms.helpers.TAB_BLOCKED
 
 class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
     private val binding by activity.viewBinding(DialogManageVisibleTabsBinding::inflate)

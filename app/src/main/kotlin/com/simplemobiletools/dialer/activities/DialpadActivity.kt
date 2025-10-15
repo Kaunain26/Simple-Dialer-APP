@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -24,13 +24,13 @@ import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.databinding.ActivityDialpadBinding
-import com.simplemobiletools.dialer.extensions.*
-import com.simplemobiletools.dialer.helpers.DIALPAD_TONE_LENGTH_MS
-import com.simplemobiletools.dialer.helpers.ToneGeneratorHelper
-import com.simplemobiletools.dialer.models.SpeedDial
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.adapters.ContactsAdapter
+import app.trusted.callerid.sms.databinding.ActivityDialpadBinding
+import app.trusted.callerid.sms.extensions.*
+import app.trusted.callerid.sms.helpers.DIALPAD_TONE_LENGTH_MS
+import app.trusted.callerid.sms.helpers.ToneGeneratorHelper
+import app.trusted.callerid.sms.models.SpeedDial
 import java.util.*
 import kotlin.math.roundToInt
 

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -15,9 +15,9 @@ import com.simplemobiletools.commons.extensions.getContrastColor
 import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.models.BlockedNumber
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.adapters.BlockedNumbersAdapter
-import com.simplemobiletools.dialer.databinding.FragmentBlockedTabBinding
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.adapters.BlockedNumbersAdapter
+import app.trusted.callerid.sms.databinding.FragmentBlockedTabBinding
 
 class BlockedTabFragment(context: Context, attrs: AttributeSet) :
     MyViewPagerFragment<MyViewPagerFragment.BlockedInnerBinding>(context, attrs) {

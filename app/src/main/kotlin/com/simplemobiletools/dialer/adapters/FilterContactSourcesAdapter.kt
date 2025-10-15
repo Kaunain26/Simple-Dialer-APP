@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +8,8 @@ import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.commons.models.contacts.ContactSource
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.databinding.ItemFilterContactSourceBinding
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.databinding.ItemFilterContactSourceBinding
 
 class FilterContactSourcesAdapter(
     val activity: SimpleActivity,

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.app.Activity
 import android.app.role.RoleManager
@@ -14,11 +14,12 @@ import com.simplemobiletools.commons.extensions.launchViewIntent
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_CALLER_ID
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
 import com.simplemobiletools.commons.helpers.isQPlus
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.ActivityPermissionOnboardingBinding
-import com.simplemobiletools.dialer.databinding.ItemPermissionToggleBinding
-import com.simplemobiletools.dialer.helpers.PermissionManager
-import com.simplemobiletools.dialer.helpers.PermissionManager.isDefaultSmsApp
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.ActivityPermissionOnboardingBinding
+import app.trusted.callerid.sms.databinding.ItemPermissionToggleBinding
+import app.trusted.callerid.sms.helpers.PRIVACY_POLICY
+import app.trusted.callerid.sms.helpers.PermissionManager
+import app.trusted.callerid.sms.helpers.PermissionManager.isDefaultSmsApp
 
 private const val REQUEST_CODE_SET_DEFAULT_SMS = 2030
 private const val EXTRA_OPEN_MAIN_ON_COMPLETE = "open_main_on_complete"
@@ -102,7 +103,7 @@ class PermissionOnboardingActivity : SimpleActivity() {
     private fun setupButtons() {
         binding.continueButton.setOnClickListener { completeFlow() }
         binding.privacyPolicyLink.setOnClickListener {
-            launchViewIntent(getString(R.string.permission_onboarding_privacy_url))
+            launchViewIntent(PRIVACY_POLICY)
         }
     }
 

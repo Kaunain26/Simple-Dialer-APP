@@ -1,10 +1,10 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.databinding.DialogExportCallHistoryBinding
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.databinding.DialogExportCallHistoryBinding
 
 class ExportCallHistoryDialog(val activity: SimpleActivity, callback: (filename: String) -> Unit) {
 

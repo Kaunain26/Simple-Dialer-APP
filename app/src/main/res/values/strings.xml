@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
+    <string name="app_name" translatable="false">Trusted Caller ID &amp; SMS</string>
+    <string name="app_launcher_name" translatable="false">Trusted Caller ID &amp; SMS</string>
     <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
 
@@ -22,7 +22,7 @@
     <string name="call_history_tab">Calls</string>
     <string name="messages_tab">Message</string>
     <string name="no_messages_found">No messages yet</string>
-    <string name="messaging_placeholder">Access your text messages with Simple SMS Messenger.</string>
+    <string name="messaging_placeholder">Access your text messages with SMS Messenger App.</string>
     <string name="open_messages">Open messages</string>
     <string name="filter_all">All</string>
     <string name="filter_missed">Missed</string>
@@ -120,18 +120,30 @@
 
     <!-- Permission onboarding -->
     <string name="permission_lock_icon">Permissions</string>
-    <string name="permission_onboarding_title">Set Simple Dialer as Caller ID</string>
-    <string name="permission_onboarding_subtitle">To block spam and display caller details, Simple Dialer must be your default Phone &amp; SMS app and have the related permissions. Complete the steps below—the Continue button unlocks once everything is enabled.</string>
+    <string name="permission_onboarding_title">Set Caller ID &amp; SMS as Default App</string>
+    <string name="permission_onboarding_subtitle">To block spam and display caller details, Caller ID &amp; SMS must be your default Phone &amp; SMS app and have the related permissions. Complete the steps below—the Continue button unlocks once everything is enabled.</string>
     <string name="permission_default_phone_title">Default Phone App</string>
-    <string name="permission_default_phone_desc">Set Simple Dialer as the default phone app and grant call permissions so we can manage and block calls.</string>
+    <string name="permission_default_phone_desc">Set as your default phone app and grant call permissions so we can manage and block spam calls.</string>
     <string name="permission_default_sms_title">Default SMS App</string>
-    <string name="permission_default_sms_desc">Make Simple Dialer your default SMS app and allow SMS permissions to secure conversations.</string>
-    <string name="permission_caller_id_title">Caller ID Access</string>
+    <string name="permission_default_sms_desc">Make as your default SMS app and allow SMS permissions to secure conversations.</string>
+    <string name="permission_caller_id_title">Caller ID &amp; Spam App</string>
     <string name="permission_caller_id_desc">Allow caller ID permission so we can read call info and detect spam numbers.</string>
     <string name="permission_onboarding_privacy">Your privacy is our priority — we never sell, share, or misuse your data.</string>
     <string name="permission_onboarding_privacy_policy">Read our Privacy Policy</string>
     <string name="permission_onboarding_continue">Continue</string>
-    <string name="permission_onboarding_privacy_url">https://simplemobiletools.com/privacy</string>
+    <string name="permission_onboarding_privacy_url">https://oxylabstudio.in/privacy-policy/</string>
+    <string name="no_number_available">No Number Available</string>
+    <string name="unknown_number">Unknown Number</string>
+    <string name="no_matching_app_found">No matching app found</string>
+    <string name="know_who_s_calling_stay_in_control">Know who\'s calling, Stay in control</string>
+    <string name="on_board_1_title">Easy &amp; Safe Communication</string>
+    <string name="on_board_1_des">Take control of your calls and messages. Identify callers, block spam, and manage messages easily</string>
+    <string name="on_board_2_title">Know Who\'s Calling</string>
+    <string name="on_board_2_des">Find out the caller\'s name and location, even if they\'re not in your contacts</string>
+    <string name="on_board_3_title">Say Goodbye to Spam</string>
+    <string name="on_board_3_des">Automatically block spam, robocalls, and telemarketers for peaceful calling experience</string>
+    <string name="on_board_4_title">Smart Messaging</string>
+    <string name="on_board_4_des">Keep your inbox clean, filter spam messages, and reply to important conversation quickly</string>
 
     <!--
         Haven't found some strings? There's more at

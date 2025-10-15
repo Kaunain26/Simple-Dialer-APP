@@ -1,8 +1,10 @@
 [versions]
 #jetbrains
+geocoder = "8.12.18.1"
 kotlin = "1.9.0"
 kotlinxSerializationJson = "1.5.1"
 #Simple tools
+libphonenumber = "9.0.16"
 simple-commons = "5.34.27"
 #AndroidX
 androidx-constraintlayout = "2.1.4"
@@ -31,7 +33,7 @@ app-build-minimumSDK = "24"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
 #versioning
-app-version-appId = "com.simplemobiletools.dialer"
+app-version-appId = "app.trusted.callerid.sms"
 app-version-versionCode = "57"
 app-version-versionName = "5.18.1"
 sspAndroid = "1.1.1"
@@ -39,6 +41,8 @@ sdpAndroid = "1.1.1"
 
 [libraries]
 #Simple Mobile Tools
+geocoder = { module = "com.lionscribe.open.libphonenumber:geocoder", version.ref = "geocoder" }
+libphonenumber = { module = "com.googlecode.libphonenumber:libphonenumber", version.ref = "libphonenumber" }
 simple-tools-commons = { module = "com.kn.commons:commons", version.ref = "simple-commons" }
 #Kotlin
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }

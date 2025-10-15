@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -17,15 +17,15 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.MainActivity
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.databinding.ItemRecentCallBinding
-import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
-import com.simplemobiletools.dialer.extensions.*
-import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
-import com.simplemobiletools.dialer.models.RecentCall
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.MainActivity
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.databinding.ItemRecentCallBinding
+import app.trusted.callerid.sms.dialogs.ShowGroupedCallsDialog
+import app.trusted.callerid.sms.extensions.*
+import app.trusted.callerid.sms.helpers.RecentsHelper
+import app.trusted.callerid.sms.interfaces.RefreshItemsListener
+import app.trusted.callerid.sms.models.RecentCall
 
 class RecentCallsAdapter(
     activity: SimpleActivity,

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.extensions.*
@@ -7,11 +7,11 @@ import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.models.contacts.ContactSource
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.FilterContactSourcesAdapter
-import com.simplemobiletools.dialer.databinding.DialogFilterContactSourcesBinding
-import com.simplemobiletools.dialer.extensions.config
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.FilterContactSourcesAdapter
+import app.trusted.callerid.sms.databinding.DialogFilterContactSourcesBinding
+import app.trusted.callerid.sms.extensions.config
 
 class FilterContactSourcesDialog(val activity: SimpleActivity, private val callback: () -> Unit) {
     private val binding by activity.viewBinding(DialogFilterContactSourcesBinding::inflate)

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.os.Bundle
 import com.google.gson.Gson
@@ -12,12 +12,12 @@ import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.models.PhoneNumber
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
-import com.simplemobiletools.dialer.databinding.ActivityManageSpeedDialBinding
-import com.simplemobiletools.dialer.dialogs.SelectContactDialog
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
-import com.simplemobiletools.dialer.models.SpeedDial
+import app.trusted.callerid.sms.adapters.SpeedDialAdapter
+import app.trusted.callerid.sms.databinding.ActivityManageSpeedDialBinding
+import app.trusted.callerid.sms.dialogs.SelectContactDialog
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.interfaces.RemoveSpeedDialListener
+import app.trusted.callerid.sms.models.SpeedDial
 
 class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
     private val binding by viewBinding(ActivityManageSpeedDialBinding::inflate)

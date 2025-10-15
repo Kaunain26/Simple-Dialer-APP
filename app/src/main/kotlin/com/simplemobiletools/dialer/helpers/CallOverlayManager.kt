@@ -1,5 +1,6 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -11,6 +12,7 @@ import android.os.Looper
 import android.provider.CallLog
 import android.provider.ContactsContract
 import android.provider.Settings
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +24,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.i18n.phonenumbers.PhoneNumberUtil
+import com.google.i18n.phonenumbers.geocoding.PhoneNumberOfflineGeocoder
 import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.dialer.R
@@ -45,6 +49,17 @@ object CallOverlayManager {
     private var windowManager: WindowManager? = null
     private var currentState: CallOverlayState? = null
 
+    // --- Drag state ---
+    private var dragLastX: Int = 0
+    private var dragLastY: Int = 0
+    private var touchStartRawX: Float = 0f
+    private var touchStartRawY: Float = 0f
+    private var viewStartX: Int = 0
+    private var viewStartY: Int = 0
+
+    @Volatile
+    private var allowProgrammaticDismiss = false
+
     fun showIncoming(context: Context, contact: CallContact, subtitle: String?) {
         show(context, contact, INCOMING, 0, subtitle)
     }
@@ -55,8 +70,22 @@ object CallOverlayManager {
     }
 
     fun dismiss() {
+        if (!allowProgrammaticDismiss) {
+            Log.d("CallOverlayManager", "dismiss() ignored (not user-initiated)")
+            return
+        }
         handler.removeCallbacksAndMessages(null)
         removeOverlay()
+    }
+
+    fun dismissByUser() {
+        allowProgrammaticDismiss = true
+        try {
+            handler.removeCallbacksAndMessages(null)
+            removeOverlay()
+        } finally {
+            allowProgrammaticDismiss = false
+        }
     }
 
     private fun show(
@@ -67,9 +96,9 @@ object CallOverlayManager {
         secondaryInfo: String?
     ) {
         val appContext = context.applicationContext
-        if (!appContext.config.showCallerOverlay) {
-            return
-        }
+        //if (!appContext.config.showCallerOverlay) {
+        //    return
+        // }
 
         if (!Settings.canDrawOverlays(appContext)) {
             return
@@ -81,6 +110,7 @@ object CallOverlayManager {
 
         val overlayView = currentView ?: LayoutInflater.from(appContext).inflate(R.layout.view_call_overlay, null).also {
             bindClicks(appContext, it, contact)
+            setupDrag(appContext, it)
             currentView = it
         }
 
@@ -93,7 +123,7 @@ object CallOverlayManager {
         }
 
         currentState = state
-        scheduleDismiss()
+        //scheduleDismiss()
     }
 
     private fun ensureLayoutParams(context: Context): WindowManager.LayoutParams {
@@ -113,12 +143,13 @@ object CallOverlayManager {
 
         val flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
             WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
-            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 
         val newParams = WindowManager.LayoutParams(width, height, overlayType, flags, PixelFormat.TRANSLUCENT).apply {
-            gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
+            gravity = Gravity.CENTER
             x = 0
-            y = context.resources.getDimensionPixelSize(R.dimen.call_overlay_top_offset)
+            y = 0
         }
 
         layoutParams = newParams
@@ -126,13 +157,13 @@ object CallOverlayManager {
     }
 
     private fun bindClicks(context: Context, view: View, contact: CallContact) {
-        view.findViewById<ImageButton>(R.id.call_overlay_close).setOnClickListener {
-            dismiss()
+        view.findViewById<ImageView>(R.id.call_overlay_close).setOnClickListener {
+            dismissByUser()
         }
 
         view.findViewById<MaterialButton>(R.id.call_overlay_profile_action).setOnClickListener {
             openContactProfile(context, contact.number)
-            dismiss()
+            dismissByUser()
         }
 
         val callAction = view.findViewById<LinearLayout>(R.id.call_overlay_call_action)
@@ -142,7 +173,7 @@ object CallOverlayManager {
         callAction.setOnClickListener {
             if (!contact.number.isNullOrEmpty()) {
                 openCallLog(context, contact.number)
-                dismiss()
+                dismissByUser()
             } else {
                 context.toast(R.string.no_number_available)
             }
@@ -151,7 +182,7 @@ object CallOverlayManager {
         messageAction.setOnClickListener {
             if (!contact.number.isNullOrEmpty()) {
                 openMessageThread(context, contact.number)
-                dismiss()
+                dismissByUser()
             } else {
                 context.toast(R.string.no_number_available)
             }
@@ -160,7 +191,7 @@ object CallOverlayManager {
         editAction.setOnClickListener {
             if (!contact.number.isNullOrEmpty()) {
                 editContact(context, contact.number)
-                dismiss()
+                dismissByUser()
             } else {
                 context.toast(R.string.no_number_available)
             }
@@ -182,11 +213,14 @@ object CallOverlayManager {
         }
 
         val subtitle = view.findViewById<TextView>(R.id.call_overlay_subtitle)
+        val numberLocation = getNumberLocation(contact.number)
         val secondaryText = when {
             !secondaryInfo.isNullOrEmpty() -> secondaryInfo
             contact.numberLabel.isNotEmpty() -> contact.numberLabel
+            !numberLocation.isNullOrEmpty() -> numberLocation
             else -> ""
         }
+        Log.d("CAllOverlay", ": $secondaryText and $numberLocation and ${contact.number}")
         subtitle.apply {
             text = secondaryText
             visibility = if (secondaryText.isNotEmpty()) View.VISIBLE else View.GONE
@@ -236,6 +270,57 @@ object CallOverlayManager {
         view.isClickable = enabled
     }
 
+    private fun setupDrag(context: Context, view: View) {
+        // Disabled drag functionality — overlay stays fixed at center.
+        /*
+        view.setOnTouchListener { v, event ->
+            val wm = windowManager ?: return@setOnTouchListener false
+            val lp = layoutParams ?: return@setOnTouchListener false
+
+            when (event.actionMasked) {
+                android.view.MotionEvent.ACTION_DOWN -> {
+                    touchStartRawX = event.rawX
+                    touchStartRawY = event.rawY
+                    viewStartX = lp.x
+                    viewStartY = lp.y
+                    true
+                }
+                android.view.MotionEvent.ACTION_MOVE -> {
+                    val dx = (event.rawX - touchStartRawX).toInt()
+                    val dy = (event.rawY - touchStartRawY).toInt()
+                    dragLastX = viewStartX + dx
+                    dragLastY = viewStartY + dy
+
+                    val (boundedX, boundedY) = boundToScreen(context, dragLastX, dragLastY)
+                    lp.x = boundedX
+                    lp.y = boundedY
+                    try {
+                        wm.updateViewLayout(v, lp)
+                    } catch (_: Exception) { }
+                    true
+                }
+                else -> false
+            }
+        }
+        */
+    }
+
+    private fun boundToScreen(context: Context, x: Int, y: Int): Pair<Int, Int> {
+        val dm = context.resources.displayMetrics
+        val halfW = dm.widthPixels / 2
+        val halfH = dm.heightPixels / 2
+
+        // Because we use Gravity.CENTER, x/y are offsets from center. Bound roughly to screen size.
+        val maxX = halfW
+        val minX = -halfW
+        val maxY = halfH
+        val minY = -halfH
+
+        val bx = x.coerceIn(minX, maxX)
+        val by = y.coerceIn(minY, maxY)
+        return Pair(bx, by)
+    }
+
     private fun scheduleDismiss() {
         handler.removeCallbacksAndMessages(null)
         handler.postDelayed({ removeOverlay() }, AUTO_DISMISS_DELAY)
@@ -243,6 +328,8 @@ object CallOverlayManager {
 
     private fun removeOverlay() {
         val overlayView = currentView ?: return
+        Log.d("removeOverlay", "${currentView}")
+
         try {
             if (overlayView.parent != null) {
                 windowManager?.removeView(overlayView)
@@ -301,4 +388,39 @@ object CallOverlayManager {
             context.toast(R.string.unknown_error_occurred)
         }
     }
+
+private fun getNumberLocation(number: String): String? {
+    if (number.isBlank()) return null
+    return try {
+        val phoneUtil = PhoneNumberUtil.getInstance()
+
+        // Use device region if available, otherwise special region code "ZZ" (unknown)
+        val fallbackRegion = Locale.getDefault().country.takeIf { it.isNotBlank() } ?: "ZZ"
+
+        // Parse number; if it already has a leading '+', the region is ignored by libphonenumber
+        val parsed = phoneUtil.parse(number, fallbackRegion)
+        if (!phoneUtil.isValidNumber(parsed)) return null
+
+        // Try offline geocoder first
+        val geocoder = PhoneNumberOfflineGeocoder.getInstance()
+        val locale = Locale.getDefault()
+        val desc = geocoder.getDescriptionForNumber(parsed, locale)
+        if (!desc.isNullOrBlank()) return desc
+
+        // Fallback 1: try English locale (often has wider coverage in metadata)
+        val descEn = geocoder.getDescriptionForNumber(parsed, Locale.ENGLISH)
+        if (!descEn.isNullOrBlank()) return descEn
+
+        // Fallback 2: at least return the country name from region code
+        val regionCode = phoneUtil.getRegionCodeForNumber(parsed)
+        if (!regionCode.isNullOrBlank()) {
+            val countryName = Locale("", regionCode).displayCountry
+            if (!countryName.isNullOrBlank()) return countryName
+        }
+
+        null
+    } catch (_: Exception) {
+        null
+    }
+}
 }

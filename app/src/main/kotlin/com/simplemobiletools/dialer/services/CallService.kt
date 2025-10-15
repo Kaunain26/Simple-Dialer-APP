@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.services
+package app.trusted.callerid.sms.services
 
 import android.app.KeyguardManager
 import android.content.Context

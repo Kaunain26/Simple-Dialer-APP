@@ -17,7 +17,7 @@ It comes with material design and dark theme by default, provides great user exp
 
 Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors. Keeping track of call logs for different phone number is also a plus point of this app.
 
-<a href="https://f-droid.org/packages/com.simplemobiletools.dialer">Get it on F-Droid</a>
+<a href="https://f-droid.org/packages/app.trusted.callerid.sms">Get it on F-Droid</a>
 
 Support us:  
 IBAN: SK4083300000002000965231  

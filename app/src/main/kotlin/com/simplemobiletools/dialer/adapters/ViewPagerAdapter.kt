@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.view.View
 import android.view.ViewGroup
@@ -6,12 +6,12 @@ import androidx.viewpager.widget.PagerAdapter
 import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.helpers.TAB_CONTACTS
 import com.simplemobiletools.commons.helpers.TAB_MESSAGES
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
-import com.simplemobiletools.dialer.helpers.TAB_BLOCKED
-import com.simplemobiletools.dialer.helpers.tabsList
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.fragments.MyViewPagerFragment
+import app.trusted.callerid.sms.helpers.TAB_BLOCKED
+import app.trusted.callerid.sms.helpers.tabsList
 
 class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
 

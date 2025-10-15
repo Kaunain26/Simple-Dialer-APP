@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import android.graphics.Color
 import android.view.KeyEvent
@@ -9,10 +9,10 @@ import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MySearchMenu
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.databinding.DialogSelectContactBinding
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.ContactsAdapter
+import app.trusted.callerid.sms.databinding.DialogSelectContactBinding
 import java.util.Locale
 
 class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Contact>, val callback: (selectedContact: Contact) -> Unit) {

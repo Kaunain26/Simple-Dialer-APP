@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.annotation.SuppressLint
 import android.app.Notification
@@ -14,10 +14,10 @@ import com.simplemobiletools.commons.extensions.notificationManager
 import com.simplemobiletools.commons.extensions.setText
 import com.simplemobiletools.commons.extensions.setVisibleIf
 import com.simplemobiletools.commons.helpers.isOreoPlus
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.CallActivity
-import com.simplemobiletools.dialer.extensions.powerManager
-import com.simplemobiletools.dialer.receivers.CallActionReceiver
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.CallActivity
+import app.trusted.callerid.sms.extensions.powerManager
+import app.trusted.callerid.sms.receivers.CallActionReceiver
 
 class CallNotificationManager(private val context: Context) {
     private val CALL_NOTIFICATION_ID = 42

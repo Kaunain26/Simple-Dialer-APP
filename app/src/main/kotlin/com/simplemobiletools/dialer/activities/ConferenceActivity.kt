@@ -1,11 +1,11 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.os.Bundle
 import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.commons.helpers.NavigationIcon
-import com.simplemobiletools.dialer.adapters.ConferenceCallsAdapter
-import com.simplemobiletools.dialer.databinding.ActivityConferenceBinding
-import com.simplemobiletools.dialer.helpers.CallManager
+import app.trusted.callerid.sms.adapters.ConferenceCallsAdapter
+import app.trusted.callerid.sms.databinding.ActivityConferenceBinding
+import app.trusted.callerid.sms.helpers.CallManager
 
 class ConferenceActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityConferenceBinding::inflate)

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.services
+package app.trusted.callerid.sms.services
 
 import android.os.Build
 import android.telecom.Call

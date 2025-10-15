@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/commons_launcher"
+        android:label="@string/smtco_app_name"
+        android:localeConfig="@xml/locale_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/TranslucentTheme">
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:configChanges="orientation" />
+
+        <activity
+            android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity
+            android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
+            android:label="@string/manage_blocked_numbers" />
+
+        <activity
+            android:name="com.simplemobiletools.commons.samples.activities.TestDialogActivity"
+            android:enableOnBackInvokedCallback="true"
+            android:exported="false" />
+    </application>
+</manifest>

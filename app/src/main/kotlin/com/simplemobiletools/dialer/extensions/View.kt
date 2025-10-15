@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.extensions
+package app.trusted.callerid.sms.extensions
 
 import android.graphics.Rect
 import android.view.View

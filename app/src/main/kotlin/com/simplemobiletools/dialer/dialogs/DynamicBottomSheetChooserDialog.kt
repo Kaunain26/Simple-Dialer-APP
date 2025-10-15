@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import android.os.Bundle
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager
 import com.simplemobiletools.commons.adapters.SimpleListItemAdapter
 import com.simplemobiletools.commons.fragments.BaseBottomSheetDialogFragment
 import com.simplemobiletools.commons.models.SimpleListItem
-import com.simplemobiletools.dialer.databinding.LayoutSimpleRecyclerViewBinding
+import app.trusted.callerid.sms.databinding.LayoutSimpleRecyclerViewBinding
 
 // same as BottomSheetChooserDialog but with dynamic updates
 class DynamicBottomSheetChooserDialog : BaseBottomSheetDialogFragment() {

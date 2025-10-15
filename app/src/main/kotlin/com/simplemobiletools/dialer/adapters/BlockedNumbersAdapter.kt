@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.getContrastColor
 import com.simplemobiletools.commons.models.BlockedNumber
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.ItemBlockedNumberBinding
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.ItemBlockedNumberBinding
 
 class BlockedNumbersAdapter(
     private val onUnblock: (BlockedNumber) -> Unit
