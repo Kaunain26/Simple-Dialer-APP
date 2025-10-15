@@ -28,14 +28,12 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.google.i18n.phonenumbers.geocoding.PhoneNumberOfflineGeocoder
 import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.extensions.toast
-import app.trusted.callerid.sms.R
-import app.trusted.callerid.sms.extensions.config
-import app.trusted.callerid.sms.models.CallContact
-import app.trusted.callerid.sms.helpers.CallContactAvatarHelper
-import app.trusted.callerid.sms.helpers.CallOverlayManager.CallOverlayState.*
-import java.util.Locale
+import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.models.CallContact
+import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
+import com.simplemobiletools.dialer.helpers.CallOverlayManager.CallOverlayState.*
 
-@SuppressLint("StaticFieldLeak")
 object CallOverlayManager {
     private const val AUTO_DISMISS_DELAY = 7000L
 

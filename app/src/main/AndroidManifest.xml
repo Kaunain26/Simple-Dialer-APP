@@ -37,8 +37,10 @@
         tools:node="remove" />
 
     <queries>
-        <package android:name="app.trusted.callerid.sms.pro.debug" />
-        <package android:name="app.trusted.callerid.sms.pro" />
+        <package android:name="com.simplemobiletools.contacts.pro.debug" />
+        <package android:name="com.simplemobiletools.contacts.pro" />
+        <package android:name="app.trusted.callerid.sms.debug" />
+        <package android:name="app.trusted.callerid.sms" />
     </queries>
 
     <application

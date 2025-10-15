@@ -8,18 +8,18 @@ import android.telecom.DisconnectCause
 import android.telecom.InCallService
 import android.os.Handler
 import android.os.Looper
-import app.trusted.callerid.sms.activities.CallActivity
-import app.trusted.callerid.sms.extensions.config
-import app.trusted.callerid.sms.extensions.getCallDuration
-import app.trusted.callerid.sms.extensions.getStateCompat
-import app.trusted.callerid.sms.extensions.isOutgoing
-import app.trusted.callerid.sms.extensions.powerManager
-import app.trusted.callerid.sms.helpers.CallManager
-import app.trusted.callerid.sms.helpers.CallNotificationManager
-import app.trusted.callerid.sms.helpers.NoCall
-import app.trusted.callerid.sms.helpers.CallOverlayManager
-import app.trusted.callerid.sms.helpers.getCallContact
-import app.trusted.callerid.sms.models.CallContact
+import com.simplemobiletools.dialer.activities.CallActivity
+import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.extensions.getCallDuration
+import com.simplemobiletools.dialer.extensions.getStateCompat
+import com.simplemobiletools.dialer.extensions.isOutgoing
+import com.simplemobiletools.dialer.extensions.powerManager
+import com.simplemobiletools.dialer.helpers.CallManager
+import com.simplemobiletools.dialer.helpers.CallNotificationManager
+import com.simplemobiletools.dialer.helpers.NoCall
+import com.simplemobiletools.dialer.helpers.CallOverlayManager
+import com.simplemobiletools.dialer.helpers.getCallContact
+import com.simplemobiletools.dialer.models.CallContact
 
 class CallService : InCallService() {
     private val callNotificationManager by lazy { CallNotificationManager(this) }
