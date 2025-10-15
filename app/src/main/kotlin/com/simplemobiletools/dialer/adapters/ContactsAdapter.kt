@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -30,13 +30,13 @@ import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
-import com.simplemobiletools.dialer.extensions.callContactWithSim
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
-import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.extensions.areMultipleSIMsAvailable
+import app.trusted.callerid.sms.extensions.callContactWithSim
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.extensions.startContactDetailsIntent
+import app.trusted.callerid.sms.interfaces.RefreshItemsListener
 import java.util.*
 
 class ContactsAdapter(

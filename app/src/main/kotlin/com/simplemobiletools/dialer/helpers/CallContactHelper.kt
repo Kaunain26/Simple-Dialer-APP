@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.content.Context
 import android.net.Uri
@@ -8,9 +8,9 @@ import com.simplemobiletools.commons.extensions.getPhoneNumberTypeText
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.extensions.isConference
-import com.simplemobiletools.dialer.models.CallContact
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.extensions.isConference
+import app.trusted.callerid.sms.models.CallContact
 
 fun getCallContact(context: Context, call: Call?, callback: (CallContact) -> Unit) {
     if (call.isConference()) {

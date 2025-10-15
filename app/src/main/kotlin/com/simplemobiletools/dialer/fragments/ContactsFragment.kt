@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -10,15 +10,15 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.MainActivity
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.databinding.FragmentContactsBinding
-import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
-import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
-import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
-import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.MainActivity
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.ContactsAdapter
+import app.trusted.callerid.sms.databinding.FragmentContactsBinding
+import app.trusted.callerid.sms.databinding.FragmentLettersLayoutBinding
+import app.trusted.callerid.sms.extensions.launchCreateNewContactIntent
+import app.trusted.callerid.sms.extensions.startContactDetailsIntent
+import app.trusted.callerid.sms.interfaces.RefreshItemsListener
 import java.util.Locale
 
 class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.LettersInnerBinding>(context, attributeSet),

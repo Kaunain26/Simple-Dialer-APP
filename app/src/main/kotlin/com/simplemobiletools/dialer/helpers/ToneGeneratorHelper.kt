@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.content.Context
 import android.media.AudioManager

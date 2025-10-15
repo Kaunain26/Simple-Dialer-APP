@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -26,20 +26,20 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
 import com.simplemobiletools.commons.models.contacts.Contact
-import com.simplemobiletools.dialer.BuildConfig
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
-import com.simplemobiletools.dialer.databinding.ActivityMainBinding
-import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
-import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
-import com.simplemobiletools.dialer.fragments.BlockedTabFragment
-import com.simplemobiletools.dialer.fragments.ContactsFragment
-import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
-import com.simplemobiletools.dialer.fragments.MessagesFragment
-import com.simplemobiletools.dialer.fragments.RecentsFragment
-import com.simplemobiletools.dialer.helpers.*
+import app.trusted.callerid.sms.BuildConfig
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.adapters.ViewPagerAdapter
+import app.trusted.callerid.sms.databinding.ActivityMainBinding
+import app.trusted.callerid.sms.dialogs.ChangeSortingDialog
+import app.trusted.callerid.sms.dialogs.FilterContactSourcesDialog
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.extensions.launchCreateNewContactIntent
+import app.trusted.callerid.sms.fragments.BlockedTabFragment
+import app.trusted.callerid.sms.fragments.ContactsFragment
+import app.trusted.callerid.sms.fragments.MyViewPagerFragment
+import app.trusted.callerid.sms.fragments.MessagesFragment
+import app.trusted.callerid.sms.fragments.RecentsFragment
+import app.trusted.callerid.sms.helpers.*
 import com.simplemobiletools.smsmessenger.extensions.config_sms
 import me.grantland.widget.AutofitHelper
 
@@ -265,10 +265,12 @@ class MainActivity : SimpleActivity() {
                             messagesFragment?.launchRecycleBin()
                             return@setOnMenuItemClickListener true
                         }
+
                         R.id.show_archived -> {
                             messagesFragment?.launchArchivedConversations()
                             return@setOnMenuItemClickListener true
                         }
+
                         R.id.settings -> {
                             messagesFragment?.launchSettings()
                             return@setOnMenuItemClickListener true

@@ -1,15 +1,15 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.viewBinding
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
-import com.simplemobiletools.dialer.databinding.DialogShowGroupedCallsBinding
-import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.models.RecentCall
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.RecentCallsAdapter
+import app.trusted.callerid.sms.databinding.DialogShowGroupedCallsBinding
+import app.trusted.callerid.sms.helpers.RecentsHelper
+import app.trusted.callerid.sms.models.RecentCall
 
 class ShowGroupedCallsDialog(val activity: BaseSimpleActivity, callIds: ArrayList<Int>) {
     private var dialog: AlertDialog? = null

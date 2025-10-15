@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,16 +10,16 @@ import com.simplemobiletools.commons.extensions.getTextSize
 import com.simplemobiletools.commons.helpers.SORT_BY_FIRST_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SURNAME
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.activities.MainActivity
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
-import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
-import com.simplemobiletools.dialer.databinding.FragmentBlockedTabBinding
-import com.simplemobiletools.dialer.databinding.FragmentMessagesBinding
-import com.simplemobiletools.dialer.databinding.FragmentRecentsBinding
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.Config
+import app.trusted.callerid.sms.activities.MainActivity
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.ContactsAdapter
+import app.trusted.callerid.sms.adapters.RecentCallsAdapter
+import app.trusted.callerid.sms.databinding.FragmentLettersLayoutBinding
+import app.trusted.callerid.sms.databinding.FragmentBlockedTabBinding
+import app.trusted.callerid.sms.databinding.FragmentMessagesBinding
+import app.trusted.callerid.sms.databinding.FragmentRecentsBinding
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.helpers.Config
 import com.simplemobiletools.smsmessenger.extensions.config_sms
 
 abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(context: Context, attributeSet: AttributeSet) :

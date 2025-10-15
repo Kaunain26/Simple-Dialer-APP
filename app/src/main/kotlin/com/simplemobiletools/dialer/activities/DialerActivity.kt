@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,8 +9,8 @@ import android.telecom.TelecomManager
 import android.widget.Toast
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.extensions.getHandleToUse
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.extensions.getHandleToUse
 
 class DialerActivity : SimpleActivity() {
     private var callNumber: Uri? = null

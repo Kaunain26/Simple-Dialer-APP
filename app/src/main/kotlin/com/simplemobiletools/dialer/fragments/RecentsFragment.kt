@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.content.Context
 import android.provider.CallLog.Calls
@@ -15,15 +15,15 @@ import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
-import com.simplemobiletools.dialer.databinding.FragmentRecentsBinding
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.MIN_RECENTS_THRESHOLD
-import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
-import com.simplemobiletools.dialer.models.RecentCall
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.RecentCallsAdapter
+import app.trusted.callerid.sms.databinding.FragmentRecentsBinding
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.helpers.MIN_RECENTS_THRESHOLD
+import app.trusted.callerid.sms.helpers.RecentsHelper
+import app.trusted.callerid.sms.interfaces.RefreshItemsListener
+import app.trusted.callerid.sms.models.RecentCall
 
 class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.RecentsInnerBinding>(context, attributeSet),
     RefreshItemsListener {

@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

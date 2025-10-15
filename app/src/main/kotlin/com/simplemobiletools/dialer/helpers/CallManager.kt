@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.annotation.SuppressLint
 import android.os.Handler
@@ -6,10 +6,10 @@ import android.telecom.Call
 import android.telecom.CallAudioState
 import android.telecom.InCallService
 import android.telecom.VideoProfile
-import com.simplemobiletools.dialer.extensions.getStateCompat
-import com.simplemobiletools.dialer.extensions.hasCapability
-import com.simplemobiletools.dialer.extensions.isConference
-import com.simplemobiletools.dialer.models.AudioRoute
+import app.trusted.callerid.sms.extensions.getStateCompat
+import app.trusted.callerid.sms.extensions.hasCapability
+import app.trusted.callerid.sms.extensions.isConference
+import app.trusted.callerid.sms.models.AudioRoute
 import java.util.concurrent.CopyOnWriteArraySet
 
 // inspired by https://github.com/Chooloo/call_manage

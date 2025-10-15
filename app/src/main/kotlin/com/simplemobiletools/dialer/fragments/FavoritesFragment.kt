@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.content.Context
 import android.util.AttributeSet
@@ -11,14 +11,14 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyLinearLayoutManager
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.databinding.FragmentFavoritesBinding
-import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.Converters
-import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.adapters.ContactsAdapter
+import app.trusted.callerid.sms.databinding.FragmentFavoritesBinding
+import app.trusted.callerid.sms.databinding.FragmentLettersLayoutBinding
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.helpers.Converters
+import app.trusted.callerid.sms.interfaces.RefreshItemsListener
 import java.util.Locale
 
 class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.LettersInnerBinding>(context, attributeSet),

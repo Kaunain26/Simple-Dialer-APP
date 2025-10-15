@@ -1,14 +1,14 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.view.Menu
 import android.view.ViewGroup
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.databinding.ItemSpeedDialBinding
-import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
-import com.simplemobiletools.dialer.models.SpeedDial
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.databinding.ItemSpeedDialBinding
+import app.trusted.callerid.sms.interfaces.RemoveSpeedDialListener
+import app.trusted.callerid.sms.models.SpeedDial
 
 class SpeedDialAdapter(
     activity: SimpleActivity, var speedDialValues: List<SpeedDial>, private val removeListener: RemoveSpeedDialListener,

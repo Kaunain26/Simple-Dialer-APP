@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_screen_root_layout"
+    android:layout_width="fill_parent"
+    android:background="@color/color_primary"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/splash_screen_bg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:contentDescription="@null"-->
+<!--        android:alpha="0.3"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/logo_transparent" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_loading"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_splash_logo"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo_transparent"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/txt_going_somewhere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/splash_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:paddingRight="10dp"
+            android:text="@string/know_who_s_calling_stay_in_control"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:indeterminate="true"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="@dimen/_5sdp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_may_contain_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:visibility="invisible"
+            android:text="This action may contain ads"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <!-- <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/margin_left_from_prog_bar"
+             android:text="@string/loading"
+             android:textSize="30sp" />-->
+
+        <!-- <RelativeLayout
+             android:id="@+id/rl_ads"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_5ssp"
+             android:gravity="bottom"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent">
+
+             <FrameLayout
+                 android:id="@+id/native_small"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:visibility="gone"
+                 tools:visibility="visible">
+
+                 <include
+                     android:id="@+id/native_skeleton"
+                     layout="@layout/native_ad_skeleton_small" />
+
+             </FrameLayout>
+
+             &lt;!&ndash;    Banner ad&ndash;&gt;
+             <FrameLayout
+                 android:id="@+id/banner_splash"
+                 android:layout_width="match_parent"
+                 android:layout_height="66dp"
+                 android:visibility="gone"
+                 tools:visibility="gone">
+
+                 <include
+                     android:id="@+id/banner_skeleton"
+                     layout="@layout/template_shimmer_ad_banner" />
+
+             </FrameLayout>
+
+         </RelativeLayout>-->
+
+    </LinearLayout>
+
+
+</RelativeLayout>

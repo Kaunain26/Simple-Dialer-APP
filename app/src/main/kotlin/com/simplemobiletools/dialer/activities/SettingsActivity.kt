@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.activities
+package app.trusted.callerid.sms.activities
 
 import android.annotation.TargetApi
 import android.content.Intent
@@ -14,14 +14,14 @@ import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.ActivitySettingsBinding
-import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
-import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.helpers.TAB_BLOCKED
-import com.simplemobiletools.dialer.models.RecentCall
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.ActivitySettingsBinding
+import app.trusted.callerid.sms.dialogs.ExportCallHistoryDialog
+import app.trusted.callerid.sms.dialogs.ManageVisibleTabsDialog
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.helpers.RecentsHelper
+import app.trusted.callerid.sms.helpers.TAB_BLOCKED
+import app.trusted.callerid.sms.models.RecentCall
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

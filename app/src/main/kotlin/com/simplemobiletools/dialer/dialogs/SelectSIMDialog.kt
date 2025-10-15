@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.dialogs
+package app.trusted.callerid.sms.dialogs
 
 import android.annotation.SuppressLint
 import android.telecom.PhoneAccountHandle
@@ -10,10 +10,10 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.viewBinding
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.DialogSelectSimBinding
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.databinding.DialogSelectSimBinding
+import app.trusted.callerid.sms.extensions.config
+import app.trusted.callerid.sms.extensions.getAvailableSIMCardLabels
 
 @SuppressLint("MissingPermission")
 class SelectSIMDialog(

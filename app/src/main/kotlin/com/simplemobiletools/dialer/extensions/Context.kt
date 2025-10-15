@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.extensions
+package app.trusted.callerid.sms.extensions
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,8 +6,8 @@ import android.media.AudioManager
 import android.net.Uri
 import android.os.PowerManager
 import com.simplemobiletools.commons.extensions.telecomManager
-import com.simplemobiletools.dialer.helpers.Config
-import com.simplemobiletools.dialer.models.SIMAccount
+import app.trusted.callerid.sms.helpers.Config
+import app.trusted.callerid.sms.models.SIMAccount
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
 

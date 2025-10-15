@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.adapters
+package app.trusted.callerid.sms.adapters
 
 import android.telecom.Call
 import android.view.Menu
@@ -9,11 +9,11 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.LOWER_ALPHA
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.databinding.ItemConferenceCallBinding
-import com.simplemobiletools.dialer.extensions.hasCapability
-import com.simplemobiletools.dialer.helpers.getCallContact
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.activities.SimpleActivity
+import app.trusted.callerid.sms.databinding.ItemConferenceCallBinding
+import app.trusted.callerid.sms.extensions.hasCapability
+import app.trusted.callerid.sms.helpers.getCallContact
 
 class ConferenceCallsAdapter(
     activity: SimpleActivity, recyclerView: MyRecyclerView, val data: ArrayList<Call>, itemClick: (Any) -> Unit

@@ -1,10 +1,10 @@
-package com.simplemobiletools.dialer.extensions
+package app.trusted.callerid.sms.extensions
 
 import android.content.SharedPreferences
 import android.telecom.PhoneAccountHandle
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
-import com.simplemobiletools.dialer.models.PhoneAccountHandleModel
+import app.trusted.callerid.sms.models.PhoneAccountHandleModel
 
 fun SharedPreferences.Editor.putPhoneAccountHandle(
     key: String,

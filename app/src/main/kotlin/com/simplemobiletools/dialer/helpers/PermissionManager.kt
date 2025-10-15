@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.app.Activity
 import android.app.role.RoleManager
@@ -15,7 +15,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_READ_PHONE_STATE
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_SMS
 import com.simplemobiletools.commons.helpers.PERMISSION_SEND_SMS
 import com.simplemobiletools.commons.helpers.isQPlus
-import com.simplemobiletools.dialer.activities.PermissionOnboardingActivity
+import app.trusted.callerid.sms.activities.PermissionOnboardingActivity
 
 object PermissionManager {
 
@@ -53,11 +53,22 @@ object PermissionManager {
 
 
     fun Context.isDefaultSmsApp(): Boolean {
-        return if (!packageName.startsWith("com.simplemobiletools.dialer")) {
+        return if (!packageName.startsWith("app.trusted.callerid.sms")) {
             true
-        } else if ((packageName.startsWith("com.simplemobiletools.dialer")) && isQPlus()) {
+        } else if ((packageName.startsWith("app.trusted.callerid.sms")) && isQPlus()) {
             val roleManager = getSystemService(RoleManager::class.java)
             roleManager!!.isRoleAvailable(RoleManager.ROLE_SMS) && roleManager.isRoleHeld(RoleManager.ROLE_SMS)
+        } else {
+            telecomManager.defaultDialerPackage == packageName
+        }
+    }
+
+    fun Context.isDefaultDialer(): Boolean {
+        return if (!packageName.startsWith("app.trusted.callerid.sms")) {
+            true
+        } else if ((packageName.startsWith("app.trusted.callerid.sms")) && isQPlus()) {
+            val roleManager = getSystemService(RoleManager::class.java)
+            roleManager!!.isRoleAvailable(RoleManager.ROLE_DIALER) && roleManager.isRoleHeld(RoleManager.ROLE_DIALER)
         } else {
             telecomManager.defaultDialerPackage == packageName
         }

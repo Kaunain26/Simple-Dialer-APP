@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.fragments
+package app.trusted.callerid.sms.fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -19,8 +19,8 @@ import com.google.android.material.button.MaterialButtonToggleGroup
 import com.simplemobiletools.commons.dialogs.PermissionRequiredDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.dialer.activities.MainActivity
-import com.simplemobiletools.dialer.databinding.FragmentMessagesBinding
+import app.trusted.callerid.sms.activities.MainActivity
+import app.trusted.callerid.sms.databinding.FragmentMessagesBinding
 import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.activities.*
 import com.simplemobiletools.smsmessenger.adapters.ConversationsAdapter

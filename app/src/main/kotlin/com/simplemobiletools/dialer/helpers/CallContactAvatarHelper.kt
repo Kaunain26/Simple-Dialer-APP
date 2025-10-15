@@ -1,4 +1,4 @@
-package com.simplemobiletools.dialer.helpers
+package app.trusted.callerid.sms.helpers
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,8 +7,8 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.util.Size
 import com.simplemobiletools.commons.helpers.isQPlus
-import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.models.CallContact
+import app.trusted.callerid.sms.R
+import app.trusted.callerid.sms.models.CallContact
 
 class CallContactAvatarHelper(private val context: Context) {
     @SuppressLint("NewApi")
