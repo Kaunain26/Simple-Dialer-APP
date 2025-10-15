@@ -51,17 +51,23 @@ fun Activity.launchViewIntent(uri: Uri, mimetype: String, filename: String) {
     }
 }
 
+private val SIMPLE_CONTACTS_PACKAGES = listOf(
+    "app.trusted.callerid.sms",
+    "app.trusted.callerid.sms.debug",
+    "com.simplemobiletools.contacts.pro",
+    "com.simplemobiletools.contacts.pro.debug",
+)
+
 fun Activity.startContactDetailsIntent(contact: SimpleContact) {
-    val simpleContacts = "com.simplemobiletools.contacts.pro"
-    val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
-    if (contact.rawId > 1000000 && contact.contactId > 1000000 && contact.rawId == contact.contactId &&
-        (isPackageInstalled(simpleContacts) || isPackageInstalled(simpleContactsDebug))
-    ) {
+    val targetPackage = SIMPLE_CONTACTS_PACKAGES.firstOrNull { isPackageInstalled(it) }
+    val isPrivateContact = contact.rawId > 1000000 && contact.contactId > 1000000 && contact.rawId == contact.contactId
+
+    if (isPrivateContact && targetPackage != null) {
         Intent().apply {
             action = Intent.ACTION_VIEW
             putExtra(CONTACT_ID, contact.rawId)
             putExtra(IS_PRIVATE, true)
-            setPackage(if (isPackageInstalled(simpleContacts)) simpleContacts else simpleContactsDebug)
+            setPackage(targetPackage)
             setDataAndType(ContactsContract.Contacts.CONTENT_LOOKUP_URI, "vnd.android.cursor.dir/person")
             launchActivityIntent(this)
         }

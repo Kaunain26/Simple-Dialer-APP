@@ -69,4 +69,8 @@
         <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

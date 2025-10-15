@@ -27,6 +27,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.models.CallContact
+import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallOverlayManager.CallOverlayState.*
 
 object CallOverlayManager {
